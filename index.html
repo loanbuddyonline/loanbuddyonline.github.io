@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LoanBuddy — India's loan comparison and calculator platform. EMI calculator, eligibility checker, CIBIL guide, and instant loan app comparison for Indian borrowers.">
+  <title>LoanBuddy — Smart Loan Decisions for Indians</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-breadcrumb">India's Loan Comparison & Calculator Platform</p>
+    <h1>Make Smarter Loan Decisions 🇮🇳</h1>
+    <p>Compare interest rates, calculate EMIs, check eligibility, and find the best loan for your income — all in one place. Free, fast, no signup.</p>
+    <div class="hero-badges">
+      <span class="badge">✅ 100% Free</span>
+      <span class="badge">🏦 50+ Lenders Compared</span>
+      <span class="badge">⚡ Results in Seconds</span>
+      <span class="badge">🔒 No Data Shared</span>
+    </div>
+    <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="emi-calculator.html" class="btn btn-orange">Calculate My EMI →</a>
+      <a href="eligibility.html" class="btn btn-ghost">Check Eligibility</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- TOOL CARDS -->
+<section class="section">
+  <div class="container">
+    <h2 style="font-size:20px;font-weight:700;text-align:center;margin-bottom:6px">Free Loan Tools</h2>
+    <p style="text-align:center;color:var(--text-light);font-size:13px;margin-bottom:24px">No login required — get instant results</p>
+
+    <div class="grid-3">
+
+      <a href="emi-calculator.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">🧮</div>
+        <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:6px">EMI Calculator</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">Calculate monthly EMI for home, personal, car, or education loan. See total interest paid.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--blue);font-weight:600">Calculate now →</div>
+      </a>
+
+      <a href="eligibility.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">✅</div>
+        <div style="font-size:15px;font-weight:700;color:var(--green);margin-bottom:6px">Eligibility Calculator</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">Find out how much loan you can get based on your salary, existing EMIs, and CIBIL score.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--green);font-weight:600">Check eligibility →</div>
+      </a>
+
+      <a href="compare-loans.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">📊</div>
+        <div style="font-size:15px;font-weight:700;color:var(--orange);margin-bottom:6px">Compare Loans</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">Compare interest rates, processing fees, and features across 50+ Indian banks and NBFCs.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--orange);font-weight:600">Compare now →</div>
+      </a>
+
+      <a href="instant-loan-apps.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">⚡</div>
+        <div style="font-size:15px;font-weight:700;color:var(--orange);margin-bottom:6px">Instant Loan Apps</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">KreditBee, MoneyView, Navi, mPokket — compared for gig workers and salaries under ₹25,000.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--orange);font-weight:600">See apps →</div>
+      </a>
+
+      <a href="cibil-score.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">📈</div>
+        <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:6px">CIBIL Score Guide</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">What is a good score, how to check it free, and how to improve from 600 to 750 in 6 months.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--blue);font-weight:600">Learn more →</div>
+      </a>
+
+      <a href="blog.html" class="card card-link">
+        <div style="font-size:32px;margin-bottom:10px">📚</div>
+        <div style="font-size:15px;font-weight:700;color:var(--green);margin-bottom:6px">Loan Blog</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7">Plain-language guides on EMI tips, CIBIL improvement, loan documents, and avoiding scams.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--green);font-weight:600">Read articles →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS STRIP -->
+<section style="background:var(--blue);padding:32px 20px">
+  <div class="container">
+    <div class="grid-4">
+      <div class="stat-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.1)">
+        <div class="stat-value" style="color:#fff">50+</div>
+        <div class="stat-label" style="color:rgba(255,255,255,0.7)">Lenders Compared</div>
+      </div>
+      <div class="stat-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.1)">
+        <div class="stat-value" style="color:#fff">8.4%</div>
+        <div class="stat-label" style="color:rgba(255,255,255,0.7)">Lowest Home Loan Rate</div>
+      </div>
+      <div class="stat-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.1)">
+        <div class="stat-value" style="color:#fff">10 min</div>
+        <div class="stat-label" style="color:rgba(255,255,255,0.7)">Fastest Loan Approval</div>
+      </div>
+      <div class="stat-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.1)">
+        <div class="stat-value" style="color:#fff">₹500</div>
+        <div class="stat-label" style="color:rgba(255,255,255,0.7)">Min Instant Loan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUICK EMI CALCULATOR -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;align-items:start">
+
+      <div>
+        <h2 style="font-size:20px;font-weight:700;margin-bottom:8px">Quick EMI Calculator</h2>
+        <p style="font-size:13px;color:var(--text-light);margin-bottom:24px">Get instant results — no signup needed</p>
+
+        <div class="calc-wrap">
+          <div class="form-group">
+            <label>Loan Amount: <span id="amtDisplay" style="color:var(--blue)">₹5,00,000</span></label>
+            <input type="range" id="loanAmt" min="50000" max="5000000" step="50000" value="500000" oninput="calcEMI()">
+            <div class="range-labels"><span>₹50K</span><span>₹50L</span></div>
+          </div>
+
+          <div class="form-group">
+            <label>Interest Rate: <span id="rateDisplay" style="color:var(--blue)">10.5%</span></label>
+            <input type="range" id="intRate" min="7" max="30" step="0.5" value="10.5" oninput="calcEMI()">
+            <div class="range-labels"><span>7%</span><span>30%</span></div>
+          </div>
+
+          <div class="form-group">
+            <label>Loan Tenure: <span id="tenureDisplay" style="color:var(--blue)">24 months</span></label>
+            <input type="range" id="tenure" min="3" max="360" step="3" value="24" oninput="calcEMI()">
+            <div class="range-labels"><span>3 months</span><span>30 years</span></div>
+          </div>
+
+          <div class="calc-result" id="calcResult">
+            <div class="calc-result-label">Monthly EMI</div>
+            <div class="calc-result-value" id="emiResult">₹0</div>
+            <div class="calc-breakdown">
+              <div class="calc-breakdown-item">
+                <div class="val" id="principalResult">₹0</div>
+                <div class="lbl">Principal</div>
+              </div>
+              <div class="calc-breakdown-item">
+                <div class="val" id="interestResult">₹0</div>
+                <div class="lbl">Total Interest</div>
+              </div>
+              <div class="calc-breakdown-item">
+                <div class="val" id="totalResult">₹0</div>
+                <div class="lbl">Total Payment</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:16px">
+            <a href="emi-calculator.html" style="font-size:12px;color:var(--blue)">Full calculator with all loan types →</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 style="font-size:20px;font-weight:700;margin-bottom:8px">Who is LoanBuddy for?</h2>
+        <p style="font-size:13px;color:var(--text-light);margin-bottom:20px">We help every type of borrower in India</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="info-box info-blue">
+            <div class="info-box-title text-blue">💼 Salaried employees</div>
+            <div style="font-size:12px;color:var(--text-mid)">Find best personal and home loan rates from banks. Check your eligibility in 30 seconds.</div>
+          </div>
+          <div class="info-box info-orange">
+            <div class="info-box-title text-orange">🚗 Gig workers — Ola, Swiggy, Zomato</div>
+            <div style="font-size:12px;color:var(--text-mid)">Banks reject you without salary slip. We show which apps approve gig income.</div>
+          </div>
+          <div class="info-box info-green">
+            <div class="info-box-title text-green">🏪 Self-employed &amp; small business</div>
+            <div style="font-size:12px;color:var(--text-mid)">Compare business loans and NBFC options that work with ITR instead of salary slips.</div>
+          </div>
+          <div class="info-box" style="background:var(--purple-light);border-left:3px solid var(--purple)">
+            <div class="info-box-title text-purple" style="color:var(--purple)">🎓 Students &amp; freshers</div>
+            <div style="font-size:12px;color:var(--text-mid)">No income? mPokket and CASHe give loans from ₹500 with just your college ID.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TOP LENDERS STRIP -->
+<section style="background:var(--white);padding:32px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <p style="text-align:center;font-size:12px;color:var(--text-light);margin-bottom:20px;font-weight:500">LENDERS WE TRACK &amp; COMPARE</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center">
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">🏦 SBI</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">🏦 HDFC</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">🏦 ICICI</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">🏦 Axis</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">🏦 Kotak</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">⚡ KreditBee</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">⚡ MoneyView</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">⚡ Navi</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">⚡ mPokket</span>
+      <span style="font-size:13px;font-weight:600;color:var(--text-mid);padding:8px 16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">⚡ Fibe</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <h2 style="font-size:20px;font-weight:700;text-align:center;margin-bottom:6px">What Borrowers Say</h2>
+    <p style="text-align:center;font-size:13px;color:var(--text-light);margin-bottom:24px">Real experiences from Indian borrowers</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:10px">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px">"I'm a Swiggy delivery partner and every bank rejected me. LoanBuddy showed me KreditBee accepts gig income — got ₹30,000 in 15 minutes."</p>
+        <div style="font-size:12px;font-weight:600;color:var(--text-dark)">Ramesh K.</div>
+        <div style="font-size:11px;color:var(--text-light)">Delivery Partner, Hyderabad</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:10px">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px">"The EMI calculator helped me compare SBI vs HDFC home loan. SBI was ₹2,300 cheaper per month for the same amount. Saved over ₹8 lakh!"</p>
+        <div style="font-size:12px;font-weight:600;color:var(--text-dark)">Priya Sharma</div>
+        <div style="font-size:11px;color:var(--text-light)">IT Professional, Mumbai</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:10px">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px">"My CIBIL was 610 and I thought no loan was possible. The CIBIL guide here showed me exactly what to fix. Score is 714 now in 5 months."</p>
+        <div style="font-size:12px;font-weight:600;color:var(--text-dark)">Anita Nair</div>
+        <div style="font-size:11px;color:var(--text-light)">Teacher, Bengaluru</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHATSAPP CTA -->
+<section style="background:var(--green);padding:36px 20px;text-align:center">
+  <div class="container">
+    <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Have a loan question? Ask us on WhatsApp</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,0.88);margin-bottom:20px">We reply within 2 hours — Monday to Saturday</p>
+    <a href="https://wa.me/919999150020" target="_blank" class="btn" style="background:#fff;color:var(--green);font-weight:700">💬 Chat on WhatsApp</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. We help you make smarter loan decisions — free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blog.html#post-loan-vs-card">Loan vs Credit Card</a></li>
+        <li><a href="blog.html#post-documents">Documents Needed</a></li>
+        <li><a href="cibil-score.html#improve-score">Improve CIBIL Score</a></li>
+        <li><a href="instant-loan-apps.html#gig-workers">Loans for Gig Workers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="privacy-policy.html#disclaimer">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Not affiliated with any bank or NBFC. Rates are indicative.</p>
+  </div>
+</footer>
+
+
+<script>
+  // Mobile nav toggle
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // EMI Calculator
+  function formatINR(n) {
+    if (n >= 10000000) return '₹' + (n/10000000).toFixed(1) + 'Cr';
+    if (n >= 100000)   return '₹' + (n/100000).toFixed(1) + 'L';
+    if (n >= 1000)     return '₹' + (n/1000).toFixed(0) + 'K';
+    return '₹' + n.toFixed(0);
+  }
+
+  function calcEMI() {
+    const P = parseFloat(document.getElementById('loanAmt').value);
+    const R = parseFloat(document.getElementById('intRate').value) / 12 / 100;
+    const N = parseFloat(document.getElementById('tenure').value);
+
+    document.getElementById('amtDisplay').textContent = formatINR(P);
+    document.getElementById('rateDisplay').textContent = parseFloat(document.getElementById('intRate').value) + '%';
+    document.getElementById('tenureDisplay').textContent = N < 12 ? N + ' months' : (N/12).toFixed(1) + ' years';
+
+    const emi  = P * R * Math.pow(1+R, N) / (Math.pow(1+R, N) - 1);
+    const total = emi * N;
+    const interest = total - P;
+
+    document.getElementById('emiResult').textContent       = formatINR(emi);
+    document.getElementById('principalResult').textContent = formatINR(P);
+    document.getElementById('interestResult').textContent  = formatINR(interest);
+    document.getElementById('totalResult').textContent     = formatINR(total);
+  }
+
+  // Run on load
+  calcEMI();
+</script>
+
+</body>
+</html>

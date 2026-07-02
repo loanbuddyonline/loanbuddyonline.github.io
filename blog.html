@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LoanBuddy Blog — practical guides on home loans, personal loans, CIBIL score, EMI calculation, and loan tips for Indian borrowers.">
+  <title>Loan Guide Blog — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .blog-card { border: 1px solid var(--border); border-radius: 12px; background: var(--white); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .blog-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .blog-card-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+    .blog-card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-title { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; line-height: 1.4; }
+    .blog-card-excerpt { font-size: 12px; color: var(--text-mid); line-height: 1.7; flex: 1; }
+    .blog-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .blog-card-date { font-size: 11px; color: var(--text-light); }
+    .blog-card-read { font-size: 11px; color: var(--blue); font-weight: 600; }
+    .blog-card-link { text-decoration: none; color: inherit; }
+    .featured-post { border: 2px solid var(--blue); background: var(--blue-light); border-radius: 12px; padding: 24px; margin-bottom: 32px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .featured-icon { font-size: 64px; flex-shrink: 0; }
+    .category-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .cat-btn { padding: 7px 16px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); background: var(--white); color: var(--text-mid); cursor: pointer; transition: all 0.2s; }
+    .cat-btn.active, .cat-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .coming-soon { opacity: 0.55; pointer-events: none; }
+    .coming-soon .blog-card-title::after { content: ' — Coming Soon'; font-size: 10px; color: var(--text-light); font-weight: 400; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero hero-blue" style="padding:40px 0">
+  <div class="container">
+    <h1>📚 Loan Guide Blog</h1>
+    <p>Practical, jargon-free guides for Indian borrowers — home loans, personal loans, CIBIL score, gig worker tips, and more.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- FEATURED -->
+    <div class="featured-post mb-8">
+      <div class="featured-icon">🏠</div>
+      <div style="flex:1;min-width:220px">
+        <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+          <span class="tag tag-blue">Featured</span>
+          <span class="tag tag-orange">Home Loan</span>
+        </div>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--blue)">Home Loan vs Rent — Which is Better in 2026?</h2>
+        <p class="fs-13 text-mid mb-14" style="line-height:1.7">At ₹8.5% home loan rate, a ₹50L loan costs ₹43,391/month EMI for 20 years. Is it cheaper to rent and invest? We do the full math for a Mumbai, Bengaluru, and Hyderabad household.</p>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+          <span class="fs-11 text-light">June 2026 · 8 min read</span>
+          <a href="blog/home-loan-vs-rent.html" class="btn btn-primary btn-sm">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="category-filter">
+      <button class="cat-btn active" onclick="filterCat('all',this)">All Articles</button>
+      <button class="cat-btn" onclick="filterCat('home-loan',this)">🏠 Home Loan</button>
+      <button class="cat-btn" onclick="filterCat('personal-loan',this)">💰 Personal Loan</button>
+      <button class="cat-btn" onclick="filterCat('cibil',this)">📊 CIBIL Score</button>
+      <button class="cat-btn" onclick="filterCat('gig',this)">🚗 Gig Workers</button>
+      <button class="cat-btn" onclick="filterCat('tips',this)">💡 Loan Tips</button>
+    </div>
+
+    <!-- ARTICLES GRID -->
+    <div class="grid-3" id="blogGrid">
+
+      <a href="blog/home-loan-vs-rent.html" class="blog-card-link" data-cat="home-loan">
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:var(--blue-light)">🏠</div>
+          <div class="blog-card-body">
+            <div style="margin-bottom:8px"><span class="tag tag-blue">Home Loan</span></div>
+            <div class="blog-card-title">Home Loan vs Rent — Which is Better in 2026?</div>
+            <div class="blog-card-excerpt">Full cost comparison with real numbers for Mumbai, Bengaluru, and Hyderabad. Includes the opportunity cost of the down payment.</div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">June 2026</span>
+              <span class="blog-card-read">8 min read →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog/low-cibil-personal-loan.html" class="blog-card-link" data-cat="personal-loan cibil">
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:var(--orange-light)">📊</div>
+          <div class="blog-card-body">
+            <div style="margin-bottom:8px"><span class="tag tag-orange">Personal Loan</span></div>
+            <div class="blog-card-title">How to Get Personal Loan with Low CIBIL Score (600–680)</div>
+            <div class="blog-card-excerpt">Which lenders approve at 600 CIBIL? What documents help? How to avoid rate trap. Step-by-step guide with real options.</div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">June 2026</span>
+              <span class="blog-card-read">6 min read →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog/gig-worker-loan-guide.html" class="blog-card-link" data-cat="gig personal-loan">
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:var(--green-light)">🚗</div>
+          <div class="blog-card-body">
+            <div style="margin-bottom:8px"><span class="tag tag-green">Gig Workers</span></div>
+            <div class="blog-card-title">Ola/Uber/Swiggy Driver Loan Guide 2026 — Full Options</div>
+            <div class="blog-card-excerpt">Gig workers get rejected by banks. Here are 6 apps that approve without salary slip, the documents needed, and the cheapest rate available.</div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">June 2026</span>
+              <span class="blog-card-read">7 min read →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog/reduce-home-loan-emi.html" class="blog-card-link" data-cat="home-loan tips">
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:#f3e5f5">💡</div>
+          <div class="blog-card-body">
+            <div style="margin-bottom:8px"><span class="tag" style="background:#f3e5f5;color:var(--purple)">Loan Tips</span></div>
+            <div class="blog-card-title">5 Ways to Reduce Your Home Loan EMI Right Now</div>
+            <div class="blog-card-excerpt">Balance transfer, prepayment, tenure change, rate renegotiation — real savings numbers on a ₹40 lakh loan. Which one saves the most?</div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">June 2026</span>
+              <span class="blog-card-read">5 min read →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coming soon cards -->
+      <div class="blog-card coming-soon" data-cat="cibil">
+        <div class="blog-card-img" style="background:#e8f5e9">📈</div>
+        <div class="blog-card-body">
+          <div style="margin-bottom:8px"><span class="tag tag-green">CIBIL Score</span></div>
+          <div class="blog-card-title">CIBIL Score 650 to 750 in 6 Months — Real Steps</div>
+          <div class="blog-card-excerpt">Exact actions, in order, to improve CIBIL by 100 points. Based on what actually works — not generic tips.</div>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Coming July 2026</span>
+            <span class="blog-card-read">Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card coming-soon" data-cat="home-loan">
+        <div class="blog-card-img" style="background:var(--blue-light)">🏦</div>
+        <div class="blog-card-body">
+          <div style="margin-bottom:8px"><span class="tag tag-blue">Home Loan</span></div>
+          <div class="blog-card-title">SBI vs HDFC Home Loan 2026 — Detailed Comparison</div>
+          <div class="blog-card-excerpt">Rate, processing fee, prepayment rules, customer service — full head-to-head on India's two biggest home loan lenders.</div>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Coming July 2026</span>
+            <span class="blog-card-read">Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card coming-soon" data-cat="personal-loan tips">
+        <div class="blog-card-img" style="background:var(--orange-light)">💰</div>
+        <div class="blog-card-body">
+          <div style="margin-bottom:8px"><span class="tag tag-orange">Personal Loan</span></div>
+          <div class="blog-card-title">Personal Loan vs Credit Card — Which Costs Less?</div>
+          <div class="blog-card-excerpt">For a ₹1 lakh emergency — 12-month personal loan at 14% vs credit card EMI at 36%. Full cost breakdown.</div>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Coming July 2026</span>
+            <span class="blog-card-read">Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card coming-soon" data-cat="tips">
+        <div class="blog-card-img" style="background:#e8f5e9">🔄</div>
+        <div class="blog-card-body">
+          <div style="margin-bottom:8px"><span class="tag tag-green">Loan Tips</span></div>
+          <div class="blog-card-title">Loan Prepayment vs SIP — Where Should the Extra ₹5,000 Go?</div>
+          <div class="blog-card-excerpt">Home loan at 8.75% vs equity SIP returning 12% — the break-even math. What most financial advisors get wrong.</div>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Coming August 2026</span>
+            <span class="blog-card-read">Soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER CTA -->
+    <div style="background:linear-gradient(135deg,var(--blue),#0D47A1);border-radius:var(--radius);padding:28px;text-align:center;margin-top:32px">
+      <h2 style="color:#fff;font-size:18px;font-weight:700;margin-bottom:6px">Get new articles in your WhatsApp</h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px">We publish 2 new guides every month. No spam — only practical loan tips.</p>
+      <a href="https://wa.me/919999150020?text=Hi%2C%20I%20want%20to%20receive%20new%20LoanBuddy%20articles" target="_blank" class="btn btn-whatsapp">💬 Subscribe via WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Top Articles</h4>
+      <ul>
+        <li><a href="blog/home-loan-vs-rent.html">Home Loan vs Rent</a></li>
+        <li><a href="blog/low-cibil-personal-loan.html">Low CIBIL Loan Guide</a></li>
+        <li><a href="blog/gig-worker-loan-guide.html">Gig Worker Loans</a></li>
+        <li><a href="blog/reduce-home-loan-emi.html">Reduce Home Loan EMI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Not affiliated with any lender. Rates are indicative.</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#blogGrid [data-cat]').forEach(el => {
+    if (cat === 'all' || el.dataset.cat.includes(cat)) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

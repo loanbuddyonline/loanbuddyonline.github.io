@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact LoanBuddy — get help with EMI calculator, loan eligibility, or any loan query. WhatsApp or email us.">
+  <title>Contact Us — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-form input, .contact-form textarea, .contact-form select {
+      width: 100%; padding: 12px 14px; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 13px; font-family: inherit;
+      background: var(--bg); color: var(--text-dark); box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+      outline: none; border-color: var(--blue);
+    }
+    .contact-form textarea { resize: vertical; min-height: 110px; }
+    .contact-channel { border: 1px solid var(--border); border-radius: 12px; padding: 20px; background: var(--white); text-align: center; }
+    .contact-icon { font-size: 32px; margin-bottom: 8px; }
+    .contact-channel h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .msg-box { display: none; padding: 14px; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero hero-blue" style="padding:40px 0">
+  <div class="container">
+    <h1>📬 Contact Us</h1>
+    <p>Have a loan question? Need help with a calculator? We reply within 24 hours.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="grid-3 mb-32">
+      <div class="contact-channel">
+        <div class="contact-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p class="fs-12 text-mid mb-12">Fastest response — typically under 2 hours on weekdays</p>
+        <a href="https://wa.me/919999150020" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-channel">
+        <div class="contact-icon">✉️</div>
+        <h3>Email</h3>
+        <p class="fs-12 text-mid mb-12">For detailed queries, document review, or partnership enquiries</p>
+        <a href="mailto:sumit2811gupta@gmail.com" class="btn btn-primary">sumit2811gupta@gmail.com</a>
+      </div>
+      <div class="contact-channel">
+        <div class="contact-icon">🕐</div>
+        <h3>Response Time</h3>
+        <p class="fs-12 text-mid">WhatsApp: within 2 hours<br>Email: within 24 hours<br>Mon–Sat, 9 AM – 6 PM IST</p>
+      </div>
+    </div>
+
+    <div style="max-width:600px;margin:0 auto">
+      <div class="card">
+        <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">Send us a message</h2>
+        <p class="fs-12 text-light mb-20">We do not share your details with any lender without your permission.</p>
+
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <div class="grid-2" style="gap:12px;margin-bottom:12px">
+            <div class="form-group" style="margin-bottom:0">
+              <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Your Name *</label>
+              <input type="text" id="fname" placeholder="Ramesh Kumar" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Phone Number *</label>
+              <input type="tel" id="fphone" placeholder="9876543210" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:12px">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Email (optional)</label>
+            <input type="email" id="femail" placeholder="ramesh@email.com">
+          </div>
+          <div class="form-group" style="margin-bottom:12px">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Query Type *</label>
+            <select id="ftype" required>
+              <option value="">Select your query</option>
+              <option>EMI / Calculator help</option>
+              <option>Loan eligibility question</option>
+              <option>Which loan app to use</option>
+              <option>CIBIL score help</option>
+              <option>Home loan query</option>
+              <option>Personal loan query</option>
+              <option>Business loan query</option>
+              <option>Partnership / DSA enquiry</option>
+              <option>Report a mistake on site</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Your Message *</label>
+            <textarea id="fmsg" placeholder="Describe your query — e.g. salary ₹22,000, want home loan, CIBIL 680, what are my options?" required></textarea>
+          </div>
+          <div class="form-group mb-0">
+            <label style="display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--text-mid);cursor:pointer">
+              <input type="checkbox" required style="margin-top:2px;width:auto">
+              I agree that LoanBuddy may contact me about my query. I am not sharing financial documents here.
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;font-size:14px;padding:13px">Send Message →</button>
+        </form>
+
+        <div id="formMsg" class="msg-box"></div>
+
+        <p class="fs-11 text-light mt-16" style="text-align:center">LoanBuddy is an information platform — we are not a lender or loan agent. We do not charge any fee for guidance.</p>
+      </div>
+
+      <div class="card mt-16">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:12px">❓ Frequently asked questions</h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <details style="border:1px solid var(--border);border-radius:8px;padding:12px">
+            <summary style="font-size:12px;font-weight:600;cursor:pointer;color:var(--text-dark)">Does LoanBuddy charge any fee?</summary>
+            <p class="fs-12 text-mid mt-8" style="line-height:1.7">No. All calculators, comparisons, and guidance on LoanBuddy are completely free. We earn through display advertising (Google AdSense). We never charge users.</p>
+          </details>
+          <details style="border:1px solid var(--border);border-radius:8px;padding:12px">
+            <summary style="font-size:12px;font-weight:600;cursor:pointer;color:var(--text-dark)">Can you get me a loan?</summary>
+            <p class="fs-12 text-mid mt-8" style="line-height:1.7">We are an information platform — not a lender or DSA. We help you understand your options and compare lenders. The loan application happens directly on the bank/NBFC's website or app.</p>
+          </details>
+          <details style="border:1px solid var(--border);border-radius:8px;padding:12px">
+            <summary style="font-size:12px;font-weight:600;cursor:pointer;color:var(--text-dark)">Will you share my contact with banks?</summary>
+            <p class="fs-12 text-mid mt-8" style="line-height:1.7">No. We do not share or sell your personal data to lenders. Your contact details are used only to respond to your query. See our <a href="privacy-policy.html" class="text-blue">Privacy Policy</a>.</p>
+          </details>
+          <details style="border:1px solid var(--border);border-radius:8px;padding:12px">
+            <summary style="font-size:12px;font-weight:600;cursor:pointer;color:var(--text-dark)">Found a mistake on the site?</summary>
+            <p class="fs-12 text-mid mt-8" style="line-height:1.7">Please email us or use the form above with "Report a mistake" selected. We review and update rate data monthly and appreciate corrections.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:sumit2811gupta@gmail.com">sumit2811gupta@gmail.com</a></li>
+        <li><a href="https://wa.me/919999150020">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Not affiliated with any lender. Rates are indicative.</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+function submitForm(e) {
+  e.preventDefault();
+  const box = document.getElementById('formMsg');
+  const name = document.getElementById('fname').value;
+  box.style.display = 'block';
+  box.style.background = '#e8f5e9';
+  box.style.border = '1px solid var(--green)';
+  box.style.color = 'var(--green)';
+  box.innerHTML = `✅ Thank you, <strong>${name}</strong>! Your message has been received. We will reply on WhatsApp or email within 24 hours.`;
+  e.target.reset();
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

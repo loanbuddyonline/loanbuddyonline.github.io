@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Best instant loan apps in India 2026 — KreditBee, MoneyView, Navi, mPokket compared for gig workers and salaries under ₹25,000.">
+  <title>Instant Loan Apps India 2026 — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .app-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      background: var(--white);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .app-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .app-card.featured { border: 2px solid var(--orange); }
+    .app-name { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .app-meta { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+    .app-meta-row { display: flex; justify-content: space-between; font-size: 12px; }
+    .app-meta-label { color: var(--text-light); }
+    .app-meta-val { font-weight: 600; color: var(--text-dark); }
+    .cost-table th { background: #f5f7ff; }
+    .step-circle {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .step-row:last-child { border-bottom: none; }
+    .warn-row { display: flex; gap: 8px; font-size: 12px; color: var(--text-mid); padding: 6px 0; }
+    .safe-row { display: flex; gap: 8px; font-size: 12px; color: var(--text-mid); padding: 6px 0; }
+    .sort-btn {
+      padding: 6px 14px; border-radius: 16px; font-size: 12px;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+    }
+    .sort-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+    tbody tr.top-pick { background: #fffde7; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html" class="active">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-orange">
+  <div class="container">
+    <p class="hero-breadcrumb">🏠 Home › Instant Loan Apps</p>
+    <h1>⚡ Instant Loan Apps India 2026</h1>
+    <p>Get ₹500 to ₹5 Lakh in your account within minutes — no branch visit, no paperwork. Compared for gig workers and salaries under ₹25,000.</p>
+    <div class="hero-badges">
+      <span class="badge">⚡ Approval in 10 minutes</span>
+      <span class="badge">💼 Works for gig workers</span>
+      <span class="badge">₹10,000 min salary</span>
+      <span class="badge">📱 100% app-based</span>
+      <span class="badge">🎓 Students eligible</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- STATS -->
+    <div class="grid-4 mb-24">
+      <div class="stat-card">
+        <div class="stat-value text-orange">₹500</div>
+        <div class="stat-label">Minimum Loan</div>
+        <div class="stat-sub">mPokket</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value text-orange">10 min</div>
+        <div class="stat-label">Fastest Approval</div>
+        <div class="stat-sub">Navi, KreditBee</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value text-green">9.9%</div>
+        <div class="stat-label">Lowest Rate</div>
+        <div class="stat-sub">Navi (best profile)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value text-blue">45 days</div>
+        <div class="stat-label">Shortest Tenure</div>
+        <div class="stat-sub">Fibe, CASHe</div>
+      </div>
+    </div>
+
+    <!-- JUMP LINKS -->
+    <div class="jump-links mb-24">
+      <span>Jump to:</span>
+      <a href="#comparison-table">📊 Full Comparison</a>
+      <a href="#app-cards">📱 App Details</a>
+      <a href="#gig-workers">🚗 Gig Workers</a>
+      <a href="#low-salary">💰 Under ₹25K</a>
+      <a href="#45-day-loans">📅 45-Day Loans</a>
+      <a href="#loan-cost">🧮 Cost Calculator</a>
+      <a href="#safety-tips">🛡️ Safety Tips</a>
+    </div>
+
+
+    <!-- FULL COMPARISON TABLE -->
+    <div id="comparison-table" class="card mb-24" style="scroll-margin-top:110px">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px">
+        <div>
+          <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">📊 Full App Comparison — June 2026</h2>
+          <p class="fs-12 text-light">All apps are RBI-registered NBFCs or bank partners. Sorted by approval speed.</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sort-btn active" onclick="sortTable('speed',this)">⚡ Speed</button>
+          <button class="sort-btn" onclick="sortTable('rate',this)">📈 Rate</button>
+          <button class="sort-btn" onclick="sortTable('amount',this)">💰 Amount</button>
+          <button class="sort-btn" onclick="sortTable('salary',this)">💼 Min Salary</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="appsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>App</th>
+              <th>Loan Amount</th>
+              <th>Tenure</th>
+              <th>Rate (APR)</th>
+              <th>Approval</th>
+              <th>Min Salary</th>
+              <th>Gig OK?</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody id="appsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- APP DETAIL CARDS -->
+    <div id="app-cards" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:6px">📱 App Details — Who Should Use Which</h2>
+      <p class="fs-12 text-light mb-16">Tap any card to see full details</p>
+
+      <div class="grid-2 mb-24">
+
+        <div class="app-card featured">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">KreditBee</div>
+            <span class="tag tag-orange">🔥 Editor's Pick</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹1,000 – ₹4 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">17–29.95% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">15 minutes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹10,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Accepted</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">580+</span></div>
+          </div>
+          <div class="info-box info-green" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Gig workers (Ola/Swiggy/Zomato), first-time borrowers, salaries ₹10K–₹25K. Accepts bank statement instead of salary slip.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">Navi</div>
+            <span class="tag tag-green">⭐ Lowest Rate</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹10,000 – ₹20 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-green">9.9–45% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">10 minutes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹15,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-orange">⚠️ Limited</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">650+</span></div>
+          </div>
+          <div class="info-box info-blue" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Salaried employees with good CIBIL wanting the lowest rate. 9.9% is only for excellent profiles — average is closer to 18–24%.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">mPokket</div>
+            <span class="tag tag-purple">🎓 Students OK</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹500 – ₹30,000</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">30–48% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">10 minutes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val text-green">No minimum</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Accepted</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">NH / 0 OK</span></div>
+          </div>
+          <div class="info-box" style="background:var(--purple-light);border-left:3px solid var(--purple);margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> College students, freshers, anyone with zero credit history. Needs only Aadhaar + college/work ID. Highest rate — use only for emergencies.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">MoneyView</div>
+            <span class="tag tag-blue">💼 Low Salary Friendly</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹5,000 – ₹10 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">16–39% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">30 minutes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹13,500/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Bank statement</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">600+</span></div>
+          </div>
+          <div class="info-box info-blue" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Delivery partners and gig workers with ₹13,500+ average monthly bank credits. Uses 3-month bank statement — no salary slip needed.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">CASHe</div>
+            <span class="tag tag-green">Social Score</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹1,000 – ₹4 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">27–33% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">1 hour</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹12,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Accepted</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">NH OK (social score)</span></div>
+          </div>
+          <div class="info-box info-green" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> People with no credit history. Uses proprietary social loan score based on digital transaction patterns — good for active UPI users.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">Fibe (EarlySalary)</div>
+            <span class="tag tag-orange">📅 Best 45-Day</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹5,000 – ₹5 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">24–30% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">2 hours</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹18,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-orange">⚠️ Limited</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">650+</span></div>
+          </div>
+          <div class="info-box info-orange" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Salary advance before payday — borrow today, repay on salary date (7–90 days). Lower rate than credit cards for short-term needs.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">PaySense</div>
+            <span class="tag tag-green">Self-Employed OK</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹5,000 – ₹5 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">16–36% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-green">2 hours</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹12,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Yes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">620+</span></div>
+          </div>
+          <div class="info-box info-green" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Self-employed and gig workers. Accepts 6-month bank statement in lieu of salary slip. Good middle ground — lower rate than KreditBee.</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="app-name">Stashfin</div>
+            <span class="tag tag-blue">Low CIBIL OK</span>
+          </div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Loan Amount</span><span class="app-meta-val text-blue">₹1,000 – ₹5 Lakh</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Interest Rate</span><span class="app-meta-val text-orange">11.99–59.99% APR</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval Time</span><span class="app-meta-val text-orange">4 hours</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹15,000/month</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Gig Workers</span><span class="app-meta-val text-green">✅ Yes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min CIBIL</span><span class="app-meta-val">550+</span></div>
+          </div>
+          <div class="info-box info-orange" style="margin-bottom:0">
+            <div class="fs-12 text-mid"><strong>Best for:</strong> Low CIBIL borrowers (550–650) who get rejected elsewhere. Wide rate range — negotiate hard and try to get under 20% if CIBIL is 620+.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- GIG WORKERS -->
+    <div id="gig-workers" class="card mb-24" style="scroll-margin-top:110px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:28px">🚗</span>
+        <h2 style="font-size:17px;font-weight:700;margin:0">Instant Loans for Gig Workers</h2>
+      </div>
+      <p class="fs-13 text-mid mb-16" style="line-height:1.8">Ola, Uber, Swiggy, Zomato, Dunzo, Urban Company, freelancers — banks reject you because you have no salary slip. Here's how to get approved anyway.</p>
+
+      <div class="info-box info-red mb-16">
+        <div class="info-box-title text-red">❌ Why banks reject gig workers</div>
+        <div class="grid-2 mt-8">
+          <div class="warn-row"><span>❌</span><span>No salary slip or Form 16</span></div>
+          <div class="warn-row"><span>❌</span><span>Irregular monthly income</span></div>
+          <div class="warn-row"><span>❌</span><span>No fixed employer</span></div>
+          <div class="warn-row"><span>❌</span><span>Thin or no credit history</span></div>
+        </div>
+      </div>
+
+      <h3 style="font-size:14px;font-weight:600;margin-bottom:12px">✅ Best apps that accept gig workers</h3>
+      <div class="grid-2 mb-16">
+        <div class="lender-card">
+          <div class="lender-name">KreditBee</div>
+          <div class="tag tag-green mb-8">✅ Accepts gig income</div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Accepts bank statement showing regular credits. Ola/Uber/Swiggy payout statements accepted. Min ₹10,000/month average over 3 months.</div>
+        </div>
+        <div class="lender-card">
+          <div class="lender-name">MoneyView</div>
+          <div class="tag tag-green mb-8">✅ Bank statement-based</div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Uses 3-month bank statement for income proof. Min ₹13,500 average monthly credit. Works well for delivery partners and freelancers.</div>
+        </div>
+        <div class="lender-card">
+          <div class="lender-name">CASHe</div>
+          <div class="tag tag-green mb-8">✅ Social score-based</div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Uses a proprietary social loan score. Good for those with no credit history but regular digital/UPI transactions. Min ₹12,000/month.</div>
+        </div>
+        <div class="lender-card">
+          <div class="lender-name">PaySense</div>
+          <div class="tag tag-green mb-8">✅ Self-employed friendly</div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Specifically designed for self-employed. Min ₹12,000/month. Bank statement of 6 months required. Accepts freelancer income.</div>
+        </div>
+      </div>
+
+      <div class="info-box info-green">
+        <div class="info-box-title text-green">💡 5 Tips to Get Approved as a Gig Worker</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <div class="step-row" style="padding:8px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:24px;height:24px;font-size:12px">1</div>
+            <div class="fs-12 text-mid">Keep all gig earnings in one bank account — consistent credits improve approval chances dramatically</div>
+          </div>
+          <div class="step-row" style="padding:8px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:24px;height:24px;font-size:12px">2</div>
+            <div class="fs-12 text-mid">Maintain a 6-month bank statement with regular credits above ₹12,000/month before applying</div>
+          </div>
+          <div class="step-row" style="padding:8px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:24px;height:24px;font-size:12px">3</div>
+            <div class="fs-12 text-mid">Get a secured credit card (₹5,000 FD-backed) and use it to build CIBIL score — helps get lower rates</div>
+          </div>
+          <div class="step-row" style="padding:8px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:24px;height:24px;font-size:12px">4</div>
+            <div class="fs-12 text-mid">Apply to KreditBee or MoneyView first — they have the most flexible gig income verification</div>
+          </div>
+          <div class="step-row" style="padding:8px 0;border-bottom:none">
+            <div class="step-circle" style="background:var(--green);width:24px;height:24px;font-size:12px">5</div>
+            <div class="fs-12 text-mid">Keep UPI transaction history active — many apps now use UPI data as an income proof signal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- UNDER 25K SALARY -->
+    <div id="low-salary" class="card mb-24" style="scroll-margin-top:110px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:28px">💰</span>
+        <h2 style="font-size:17px;font-weight:700;margin:0">Best Loans if Salary is Under ₹25,000</h2>
+      </div>
+      <p class="fs-13 text-mid mb-16" style="line-height:1.8">Most banks require ₹25,000+ salary. These apps approve loans for salaries as low as ₹10,000 — ideal for junior employees, freshers, and part-time workers.</p>
+
+      <div class="table-wrap mb-16">
+        <table>
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Min Salary</th>
+              <th>Max at ₹15K salary</th>
+              <th>Rate</th>
+              <th>Documents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#f0fff4">
+              <td class="fw-600">mPokket</td>
+              <td class="text-green fw-600">No minimum</td>
+              <td class="text-blue fw-600">₹30,000</td>
+              <td class="text-orange">30–48%</td>
+              <td class="fs-12 text-light">Aadhaar + college/work ID</td>
+            </tr>
+            <tr>
+              <td class="fw-600">KreditBee</td>
+              <td class="text-green fw-600">₹10,000</td>
+              <td class="text-blue fw-600">₹50,000</td>
+              <td class="text-orange">17–29.95%</td>
+              <td class="fs-12 text-light">Aadhaar + PAN + bank stmt</td>
+            </tr>
+            <tr>
+              <td class="fw-600">CASHe</td>
+              <td class="text-green fw-600">₹12,000</td>
+              <td class="text-blue fw-600">₹75,000</td>
+              <td class="text-orange">27–33%</td>
+              <td class="fs-12 text-light">Aadhaar + PAN + selfie</td>
+            </tr>
+            <tr>
+              <td class="fw-600">PaySense</td>
+              <td class="text-green fw-600">₹12,000</td>
+              <td class="text-blue fw-600">₹1,00,000</td>
+              <td class="text-orange">16–36%</td>
+              <td class="fs-12 text-light">Aadhaar + PAN + salary slip</td>
+            </tr>
+            <tr>
+              <td class="fw-600">MoneyView</td>
+              <td class="text-green fw-600">₹13,500</td>
+              <td class="text-blue fw-600">₹1,50,000</td>
+              <td class="text-orange">16–39%</td>
+              <td class="fs-12 text-light">Aadhaar + PAN + bank stmt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">📄 Documents you need</div>
+          <div style="display:flex;flex-direction:column;gap:5px;margin-top:6px">
+            <div class="safe-row"><span>✅</span><span>Aadhaar Card</span></div>
+            <div class="safe-row"><span>✅</span><span>PAN Card</span></div>
+            <div class="safe-row"><span>✅</span><span>3–6 month bank statement</span></div>
+            <div class="safe-row"><span>✅</span><span>Salary slip (if salaried)</span></div>
+            <div class="safe-row"><span>✅</span><span>Selfie for KYC</span></div>
+          </div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">💡 Pro tips for low salary</div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+            <div class="safe-row"><span>→</span><span>Start with small loan (₹5,000) and repay on time to build limit</span></div>
+            <div class="safe-row"><span>→</span><span>Apply to only 1 app at a time — multiple hurt CIBIL</span></div>
+            <div class="safe-row"><span>→</span><span>Maintain ₹0 bounced cheque history in bank account</span></div>
+            <div class="safe-row"><span>→</span><span>Set auto-repayment to avoid missed EMIs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 45 DAY LOANS -->
+    <div id="45-day-loans" class="card mb-24" style="scroll-margin-top:110px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:28px">📅</span>
+        <h2 style="font-size:17px;font-weight:700;margin:0">45-Day Salary Advance Loans</h2>
+      </div>
+      <p class="fs-13 text-mid mb-16" style="line-height:1.8">Borrow against your next salary. Repay when salary is credited — ideal for emergencies before payday.</p>
+
+      <div class="grid-3 mb-16">
+        <div class="app-card featured">
+          <div class="app-name">Fibe (EarlySalary)</div>
+          <div class="tag tag-orange mb-8">Best 45-Day App</div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Amount</span><span class="app-meta-val text-blue">₹5,000 – ₹5L</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Tenure</span><span class="app-meta-val">7–90 days</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Rate</span><span class="app-meta-val text-orange">24–30%</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval</span><span class="app-meta-val text-green">2 hours</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹18,000</span></div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-name">CASHe</div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Amount</span><span class="app-meta-val text-blue">₹1K – ₹4L</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Tenure</span><span class="app-meta-val">9 days – 18 months</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Rate</span><span class="app-meta-val text-orange">27–33%</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval</span><span class="app-meta-val text-green">1 hour</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹12,000</span></div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-name">KreditBee</div>
+          <div class="app-meta">
+            <div class="app-meta-row"><span class="app-meta-label">Amount</span><span class="app-meta-val text-blue">₹1K – ₹4L</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Tenure</span><span class="app-meta-val">3–24 months</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Rate</span><span class="app-meta-val text-orange">17–29.95%</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Approval</span><span class="app-meta-val text-green">15 minutes</span></div>
+            <div class="app-meta-row"><span class="app-meta-label">Min Salary</span><span class="app-meta-val">₹10,000</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COST CALCULATOR -->
+      <div id="loan-cost" style="scroll-margin-top:110px;background:var(--bg);border-radius:12px;padding:20px">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:16px">🧮 45-Day Loan Cost Calculator</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:16px">
+          <div class="form-group" style="margin-bottom:0">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Loan Amount: <strong id="costAmtDisplay" style="color:var(--orange)">₹10,000</strong></label>
+            <input type="range" id="costAmt" min="1000" max="200000" step="1000" value="10000" oninput="calcCost()">
+            <div class="range-labels"><span>₹1K</span><span>₹2L</span></div>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Tenure (days): <strong id="costDaysDisplay" style="color:var(--orange)">45</strong></label>
+            <input type="range" id="costDays" min="7" max="90" step="1" value="45" oninput="calcCost()">
+            <div class="range-labels"><span>7 days</span><span>90 days</span></div>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">Interest Rate: <strong id="costRateDisplay" style="color:var(--orange)">27%</strong></label>
+            <input type="range" id="costRate" min="15" max="50" step="0.5" value="27" oninput="calcCost()">
+            <div class="range-labels"><span>15%</span><span>50%</span></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+          <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:18px;font-weight:700;color:var(--blue)" id="costPrincipal">₹10,000</div>
+            <div class="fs-11 text-light">Principal</div>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:18px;font-weight:700;color:var(--orange)" id="costInterest">₹333</div>
+            <div class="fs-11 text-light">Interest</div>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:18px;font-weight:700;color:var(--text-light)" id="costFee">~₹300</div>
+            <div class="fs-11 text-light">Processing Fee</div>
+          </div>
+          <div style="background:var(--orange);border-radius:10px;padding:14px;text-align:center">
+            <div style="font-size:18px;font-weight:700;color:#fff" id="costTotal">₹10,633</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.85)">Total Repayment</div>
+          </div>
+        </div>
+        <p class="fs-11 text-light mt-8">Interest = Principal × Rate × (Days/365). Processing fee varies by app (1–3%).</p>
+      </div>
+    </div>
+
+
+    <!-- SAFETY TIPS -->
+    <div id="safety-tips" class="card mb-24" style="scroll-margin-top:110px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:28px">🛡️</span>
+        <h2 style="font-size:17px;font-weight:700;margin:0">Safety Tips — Avoid Loan App Scams</h2>
+      </div>
+
+      <div class="info-box info-red mb-12">
+        <div class="info-box-title text-red">🚫 Red flags — avoid these apps immediately</div>
+        <div class="grid-2 mt-8">
+          <div class="warn-row"><span>❌</span><span>Not listed on RBI's NBFC list</span></div>
+          <div class="warn-row"><span>❌</span><span>Asks for contacts or gallery access</span></div>
+          <div class="warn-row"><span>❌</span><span>Promises loan without any verification</span></div>
+          <div class="warn-row"><span>❌</span><span>Charges fee before disbursing loan</span></div>
+          <div class="warn-row"><span>❌</span><span>No physical address or grievance officer</span></div>
+          <div class="warn-row"><span>❌</span><span>Communicates only via WhatsApp</span></div>
+        </div>
+      </div>
+
+      <div class="info-box info-green mb-16">
+        <div class="info-box-title text-green">✅ How to verify a loan app is genuine</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <div class="step-row" style="padding:6px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:22px;height:22px;font-size:11px;flex-shrink:0">1</div>
+            <div class="fs-12 text-mid">Check RBI's approved NBFC list at <strong>rbi.org.in</strong> → NBFC list → search app name</div>
+          </div>
+          <div class="step-row" style="padding:6px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:22px;height:22px;font-size:11px;flex-shrink:0">2</div>
+            <div class="fs-12 text-mid">App must be on Google Play Store with 1 lakh+ downloads and 3.5+ star rating</div>
+          </div>
+          <div class="step-row" style="padding:6px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:22px;height:22px;font-size:11px;flex-shrink:0">3</div>
+            <div class="fs-12 text-mid">Read the loan agreement fully before accepting — check all fees and penalty clauses</div>
+          </div>
+          <div class="step-row" style="padding:6px 0;border-bottom:1px solid rgba(46,125,50,0.15)">
+            <div class="step-circle" style="background:var(--green);width:22px;height:22px;font-size:11px;flex-shrink:0">4</div>
+            <div class="fs-12 text-mid">Never share OTP or net banking password with anyone claiming to be from the app</div>
+          </div>
+          <div class="step-row" style="padding:6px 0;border-bottom:none">
+            <div class="step-circle" style="background:var(--green);width:22px;height:22px;font-size:11px;flex-shrink:0">5</div>
+            <div class="fs-12 text-mid">Report fake loan apps at <strong>cybercrime.gov.in</strong> or call <strong>1930</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div style="background:var(--blue-light);border-radius:10px;padding:12px;text-align:center">
+          <div style="font-size:22px;margin-bottom:4px">🏛️</div>
+          <div class="fs-12 fw-600 text-blue">RBI Regulated</div>
+          <div class="fs-11 text-light mt-4">All apps on this page</div>
+        </div>
+        <div style="background:var(--green-light);border-radius:10px;padding:12px;text-align:center">
+          <div style="font-size:22px;margin-bottom:4px">🔒</div>
+          <div class="fs-12 fw-600 text-green">Data Protected</div>
+          <div class="fs-11 text-light mt-4">RBI data guidelines</div>
+        </div>
+        <div style="background:var(--orange-light);border-radius:10px;padding:12px;text-align:center">
+          <div style="font-size:22px;margin-bottom:4px">📞</div>
+          <div class="fs-12 fw-600 text-orange">Helpline: 1930</div>
+          <div class="fs-11 text-light mt-4">Report fraud apps</div>
+        </div>
+        <div style="background:var(--purple-light);border-radius:10px;padding:12px;text-align:center">
+          <div style="font-size:22px;margin-bottom:4px">⚖️</div>
+          <div class="fs-12 fw-600" style="color:var(--purple)">Fair Practice</div>
+          <div class="fs-11 text-light mt-4">No harassment allowed</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(135deg,var(--orange),#FF8F00);border-radius:var(--radius);padding:28px;text-align:center">
+      <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Still confused which app to choose?</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.9);margin-bottom:20px">Check your eligibility — we'll match you to the right app based on your salary and profile</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="eligibility.html" class="btn" style="background:#fff;color:var(--orange);font-weight:700">Check My Eligibility →</a>
+        <a href="compare-loans.html" class="btn btn-ghost">📊 Compare All Loans</a>
+        <a href="https://wa.me/919999150020" target="_blank" class="btn btn-ghost">💬 WhatsApp Us</a>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:14px">* All rates indicative as of June 2026. Verify on app before applying.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#comparison-table">Full Comparison</a></li>
+        <li><a href="#gig-workers">Gig Worker Loans</a></li>
+        <li><a href="#low-salary">Under ₹25K Salary</a></li>
+        <li><a href="#45-day-loans">45-Day Loans</a></li>
+        <li><a href="#safety-tips">Safety Tips</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Not affiliated with any lender. Rates are indicative.</p>
+  </div>
+</footer>
+
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== APP DATA =====
+const apps = [
+  { rank:1, name:'KreditBee',       badge:'🔥 Editor\'s Pick', amtMin:1000,  amtMax:400000,  tenure:'3–24 months', rateMin:17,   rateMax:29.95, speedMin:15,  speedUnit:'min', salaryMin:10000, gig:'✅ Yes', rating:'⭐⭐⭐⭐⭐' },
+  { rank:2, name:'Navi',            badge:'⭐ Lowest Rate',    amtMin:10000, amtMax:2000000, tenure:'3–72 months', rateMin:9.9,  rateMax:45,    speedMin:10,  speedUnit:'min', salaryMin:15000, gig:'⚠️ Limited', rating:'⭐⭐⭐⭐⭐' },
+  { rank:3, name:'mPokket',         badge:'🎓 Students OK',   amtMin:500,   amtMax:30000,   tenure:'2–4 months',  rateMin:30,   rateMax:48,    speedMin:10,  speedUnit:'min', salaryMin:0,     gig:'✅ Yes', rating:'⭐⭐⭐⭐' },
+  { rank:4, name:'MoneyView',       badge:'💼 Low Salary',    amtMin:5000,  amtMax:1000000, tenure:'6–60 months', rateMin:16,   rateMax:39,    speedMin:30,  speedUnit:'min', salaryMin:13500, gig:'✅ Yes', rating:'⭐⭐⭐⭐⭐' },
+  { rank:5, name:'CASHe',           badge:'',                  amtMin:1000,  amtMax:400000,  tenure:'9–540 days',  rateMin:27,   rateMax:33,    speedMin:60,  speedUnit:'min', salaryMin:12000, gig:'✅ Yes', rating:'⭐⭐⭐⭐' },
+  { rank:6, name:'Fibe (EarlySalary)',badge:'📅 45-Day',       amtMin:5000,  amtMax:500000,  tenure:'7–90 days',   rateMin:24,   rateMax:30,    speedMin:120, speedUnit:'min', salaryMin:18000, gig:'⚠️ Limited', rating:'⭐⭐⭐⭐' },
+  { rank:7, name:'PaySense',        badge:'',                  amtMin:5000,  amtMax:500000,  tenure:'3–60 months', rateMin:16,   rateMax:36,    speedMin:120, speedUnit:'min', salaryMin:12000, gig:'✅ Yes', rating:'⭐⭐⭐⭐' },
+  { rank:8, name:'Stashfin',        badge:'Low CIBIL OK',      amtMin:1000,  amtMax:500000,  tenure:'3–36 months', rateMin:11.99,rateMax:59.99, speedMin:240, speedUnit:'min', salaryMin:15000, gig:'✅ Yes', rating:'⭐⭐⭐' },
+];
+
+function fmtAmt(n) {
+  if (n >= 100000) return '₹' + (n/100000).toFixed(0) + 'L';
+  if (n >= 1000)   return '₹' + (n/1000).toFixed(0) + 'K';
+  return '₹' + n;
+}
+function fmtSpeed(min) {
+  if (min < 60)  return min + ' min';
+  return (min/60).toFixed(0) + ' hour' + (min >= 120 ? 's' : '');
+}
+
+function renderTable(data) {
+  const tbody = document.getElementById('appsBody');
+  tbody.innerHTML = data.map((a, i) => `
+    <tr class="${i === 0 ? 'top-pick' : ''}">
+      <td class="fw-600 text-orange">${i+1}</td>
+      <td>
+        <div class="fw-600">${a.url
+          ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(0,0,0,0.2)">${a.name} ↗</a>`
+          : a.name}</div>
+        ${a.badge ? `<span class="tag tag-orange fs-11">${a.badge}</span>` : ''}
+      </td>
+      <td class="text-blue fw-600">${fmtAmt(a.amtMin)} – ${fmtAmt(a.amtMax)}</td>
+      <td class="fs-12 text-mid">${a.tenure}</td>
+      <td class="${a.rateMin < 15 ? 'best-rate' : a.rateMin < 25 ? 'mid-rate' : 'worst-rate'}">${a.rateMin}–${a.rateMax}%</td>
+      <td><span class="tag ${a.speedMin <= 15 ? 'tag-green' : a.speedMin <= 60 ? 'tag-green' : 'tag-orange'}">${fmtSpeed(a.speedMin)}</span></td>
+      <td class="${a.salaryMin === 0 ? 'text-green fw-600' : ''}">${a.salaryMin === 0 ? 'No min' : '₹' + a.salaryMin.toLocaleString('en-IN')}</td>
+      <td class="${a.gig.includes('✅') ? 'text-green' : 'text-orange'} fw-600">${a.gig}</td>
+      <td>${a.rating}</td>
+    </tr>`).join('');
+}
+
+function sortTable(by, btn) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const sorted = [...apps];
+  if (by === 'speed')  sorted.sort((a,b) => a.speedMin - b.speedMin);
+  if (by === 'rate')   sorted.sort((a,b) => a.rateMin - b.rateMin);
+  if (by === 'amount') sorted.sort((a,b) => b.amtMax - a.amtMax);
+  if (by === 'salary') sorted.sort((a,b) => a.salaryMin - b.salaryMin);
+  renderTable(sorted);
+}
+
+// ===== COST CALCULATOR =====
+function calcCost() {
+  const amt  = parseFloat(document.getElementById('costAmt').value);
+  const days = parseFloat(document.getElementById('costDays').value);
+  const rate = parseFloat(document.getElementById('costRate').value);
+
+  document.getElementById('costAmtDisplay').textContent  = '₹' + amt.toLocaleString('en-IN');
+  document.getElementById('costDaysDisplay').textContent = days + ' days';
+  document.getElementById('costRateDisplay').textContent = rate + '%';
+
+  const interest = amt * (rate / 100) * (days / 365);
+  const fee      = amt * 0.025;
+  const total    = amt + interest + fee;
+
+  document.getElementById('costPrincipal').textContent = '₹' + Math.round(amt).toLocaleString('en-IN');
+  document.getElementById('costInterest').textContent  = '₹' + Math.round(interest).toLocaleString('en-IN');
+  document.getElementById('costFee').textContent       = '~₹' + Math.round(fee).toLocaleString('en-IN');
+  document.getElementById('costTotal').textContent     = '₹' + Math.round(total).toLocaleString('en-IN');
+}
+
+// Init — load live rates from JSON, merge into apps array, then render
+fetch('data/rates.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    (data.instantApps || []).forEach(function(j) {
+      var match = apps.find(function(a) {
+        var an = a.name.toLowerCase();
+        var jn = (j.name || '').toLowerCase();
+        return an === jn || an.includes(jn) || jn.includes(an.split(' ')[0]);
+      });
+      if (match) {
+        if (j.rateMin) match.rateMin = parseFloat(j.rateMin);
+        if (j.rateMax) match.rateMax = parseFloat(j.rateMax);
+        if (j.url)     match.url     = j.url;
+      }
+    });
+  })
+  .catch(function() {})
+  .then(function() {
+    renderTable(apps);
+    calcCost();
+  });
+</script>
+
+</body>
+</html>

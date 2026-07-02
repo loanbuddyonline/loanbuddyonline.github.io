@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare loan interest rates across 50+ Indian banks and NBFCs — home loan, personal loan, car loan, instant loan apps. Updated June 2026.">
+  <title>Compare Loan Rates India 2026 — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .section-heading {
+      display:flex; align-items:center; gap:10px;
+      margin-bottom:6px; flex-wrap:wrap;
+    }
+    .section-heading h2 { font-size:18px; font-weight:700; margin:0; }
+    .best-tag {
+      background:var(--green-light); color:var(--green);
+      font-size:10px; font-weight:700; padding:3px 8px; border-radius:8px;
+    }
+    .worst-rate { color:var(--red); font-weight:600; }
+    .best-rate  { color:var(--green); font-weight:600; }
+    .mid-rate   { color:var(--orange); font-weight:600; }
+    .lender-card {
+      border:1px solid var(--border); border-radius:10px;
+      padding:14px; background:var(--white);
+    }
+    .lender-name { font-size:14px; font-weight:700; color:var(--text-dark); margin-bottom:4px; }
+    .filter-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+    .filter-btn {
+      padding:6px 14px; border-radius:16px; font-size:12px; font-weight:500;
+      border:1px solid var(--border); background:var(--white); color:var(--text-mid);
+      cursor:pointer; transition:all 0.2s; text-decoration:none; display:inline-block;
+    }
+    .filter-btn:hover { border-color:var(--blue); color:var(--blue); text-decoration:none; }
+    .sticky-nav {
+      position:sticky; top:60px; z-index:50;
+      background:var(--white); border-bottom:1px solid var(--border);
+      padding:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    .loan-section { scroll-margin-top:110px; }
+    tbody tr.highlight { background:#fffde7; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html" class="active">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="background:linear-gradient(135deg,#0D47A1,#1565C0)">
+  <div class="container">
+    <p class="hero-breadcrumb">🏠 Home › Compare Loans</p>
+    <h1>📊 Compare Loan Rates — India 2026</h1>
+    <p>Interest rates, processing fees, and features across 50+ Indian banks and NBFCs — all in one transparent dashboard. Updated June 2026.</p>
+    <div class="hero-badges">
+      <span class="badge">🏦 50+ Lenders</span>
+      <span class="badge">📅 Updated June 2026</span>
+      <span class="badge">✅ All RBI Registered</span>
+      <span class="badge">💰 6 Loan Types</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY SECTION NAV -->
+<div class="sticky-nav">
+  <div class="container">
+    <div class="filter-tabs">
+      <span style="font-size:12px;font-weight:600;color:var(--text-mid);line-height:28px">Jump to:</span>
+      <a href="#home-loan"      class="filter-btn">🏠 Home Loan</a>
+      <a href="#personal-loan"  class="filter-btn">💼 Personal Loan</a>
+      <a href="#instant-loan"   class="filter-btn">⚡ Instant Apps</a>
+      <a href="#car-loan"       class="filter-btn">🚗 Car Loan</a>
+      <a href="#business-loan"  class="filter-btn">🏪 Business Loan</a>
+      <a href="#education-loan" class="filter-btn">🎓 Education Loan</a>
+    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- SUMMARY STATS -->
+    <div class="grid-4 mb-24">
+      <div class="stat-card">
+        <div class="stat-value text-green">8.40%</div>
+        <div class="stat-label">Lowest Home Loan</div>
+        <div class="stat-sub">Bank of Baroda</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value text-blue">10.49%</div>
+        <div class="stat-label">Lowest Personal Loan</div>
+        <div class="stat-sub">Axis Bank</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value text-orange">9.9%</div>
+        <div class="stat-label">Lowest Instant Loan</div>
+        <div class="stat-sub">Navi App</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--purple)">8.15%</div>
+        <div class="stat-label">Lowest Education Loan</div>
+        <div class="stat-sub">SBI Vidya Lakshmi</div>
+      </div>
+    </div>
+
+
+    <!-- ===== HOME LOAN ===== -->
+    <div id="home-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>🏠 Home Loan Rates</h2>
+        <span class="best-tag">Best: 8.40% — Bank of Baroda</span>
+      </div>
+      <p class="fs-12 text-light mb-16">Floating rates linked to repo rate. All rates for salaried borrowers with 750+ CIBIL. Women borrowers get 0.05% concession at most banks.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lender</th>
+              <th>Interest Rate</th>
+              <th>Max Tenure</th>
+              <th>Processing Fee</th>
+              <th>Max Loan</th>
+              <th>Min CIBIL</th>
+              <th>Special</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">Bank of Baroda</div><div><span class="tag tag-green">Lowest Rate</span></div></td>
+              <td class="best-rate">8.40% – 10.65%</td>
+              <td>30 years</td>
+              <td>0.50% (max ₹15,000)</td>
+              <td>No limit</td>
+              <td>675+</td>
+              <td class="fs-12 text-light">0.05% extra for women</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">SBI</div><div><span class="tag tag-blue">Govt. Bank</span></div></td>
+              <td class="best-rate">8.50% – 10.05%</td>
+              <td>30 years</td>
+              <td>0.35% + GST (max ₹10,000)</td>
+              <td>No limit</td>
+              <td>650+</td>
+              <td class="fs-12 text-light">Zero processing for women</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">Kotak Mahindra</div></td>
+              <td class="mid-rate">8.70% – 9.40%</td>
+              <td>20 years</td>
+              <td>0.50%</td>
+              <td>₹10 Crore</td>
+              <td>720+</td>
+              <td class="fs-12 text-light">Balance transfer at 8.75%</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">HDFC Bank</div><div><span class="tag tag-blue">Most Popular</span></div></td>
+              <td class="mid-rate">8.75% – 9.65%</td>
+              <td>30 years</td>
+              <td>Up to 0.50% + GST</td>
+              <td>₹10 Crore</td>
+              <td>700+</td>
+              <td class="fs-12 text-light">Quick approval in 4 days</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">5</td>
+              <td><div class="fw-600">ICICI Bank</div></td>
+              <td class="mid-rate">8.75% – 9.80%</td>
+              <td>30 years</td>
+              <td>Up to 0.50% + GST</td>
+              <td>₹5 Crore</td>
+              <td>700+</td>
+              <td class="fs-12 text-light">Instant approval for existing customers</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">6</td>
+              <td><div class="fw-600">Axis Bank</div></td>
+              <td class="mid-rate">8.75% – 13.30%</td>
+              <td>30 years</td>
+              <td>1% min ₹10,000</td>
+              <td>₹5 Crore</td>
+              <td>700+</td>
+              <td class="fs-12 text-light">Shubh Aarambh loan for first buyers</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">7</td>
+              <td><div class="fw-600">LIC Housing Finance</div></td>
+              <td class="mid-rate">8.50% – 10.75%</td>
+              <td>30 years</td>
+              <td>Up to 0.50%</td>
+              <td>₹15 Crore</td>
+              <td>650+</td>
+              <td class="fs-12 text-light">Good for tier-2 cities</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">8</td>
+              <td><div class="fw-600">Bajaj Housing Finance</div></td>
+              <td class="mid-rate">8.50% – 15%</td>
+              <td>32 years</td>
+              <td>Up to 0.50%</td>
+              <td>₹5 Crore</td>
+              <td>646+</td>
+              <td class="fs-12 text-light">Lowest CIBIL requirement</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-box info-blue mt-16">
+        <div class="info-box-title text-blue">💡 Home Loan Tips</div>
+        <div class="fs-12 text-mid">Always compare the APR (Annual Percentage Rate) not just the interest rate — processing fees and insurance can add ₹1–3 lakh to your total cost. Get quotes from at least 3 lenders before deciding.</div>
+      </div>
+    </div>
+
+
+    <!-- ===== PERSONAL LOAN ===== -->
+    <div id="personal-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>💼 Personal Loan Rates</h2>
+        <span class="best-tag">Best: 10.49% — Axis Bank</span>
+      </div>
+      <p class="fs-12 text-light mb-16">Unsecured loans — no collateral required. Rate depends heavily on CIBIL score, employer, and income.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lender</th>
+              <th>Interest Rate</th>
+              <th>Loan Amount</th>
+              <th>Max Tenure</th>
+              <th>Processing Fee</th>
+              <th>Approval Time</th>
+              <th>Min Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">Axis Bank</div><div><span class="tag tag-green">Lowest Rate</span></div></td>
+              <td class="best-rate">10.49% – 22%</td>
+              <td>₹50K – ₹40L</td>
+              <td>5 years</td>
+              <td>Up to 2%</td>
+              <td>Same day</td>
+              <td>₹15,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">HDFC Bank</div><div><span class="tag tag-blue">Fastest</span></div></td>
+              <td class="mid-rate">10.5% – 24%</td>
+              <td>₹50K – ₹40L</td>
+              <td>5 years</td>
+              <td>Up to 2.5%</td>
+              <td>10 seconds*</td>
+              <td>₹25,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">ICICI Bank</div></td>
+              <td class="mid-rate">10.8% – 16%</td>
+              <td>₹50K – ₹50L</td>
+              <td>6 years</td>
+              <td>Up to 2.5%</td>
+              <td>3 seconds*</td>
+              <td>₹30,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">SBI Xpress Credit</div></td>
+              <td class="mid-rate">11% – 14%</td>
+              <td>₹25K – ₹35L</td>
+              <td>6 years</td>
+              <td>1% + GST</td>
+              <td>Same day</td>
+              <td>₹15,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">5</td>
+              <td><div class="fw-600">Kotak Mahindra</div></td>
+              <td class="mid-rate">10.99% – 24%</td>
+              <td>₹50K – ₹35L</td>
+              <td>5 years</td>
+              <td>Up to 3%</td>
+              <td>Same day</td>
+              <td>₹25,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">6</td>
+              <td><div class="fw-600">Bajaj Finance</div><div><span class="tag tag-orange">No salary slip</span></div></td>
+              <td class="worst-rate">13% – 30%</td>
+              <td>₹30K – ₹40L</td>
+              <td>8 years</td>
+              <td>Up to 3.99%</td>
+              <td>24 hours</td>
+              <td>₹25,000</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">7</td>
+              <td><div class="fw-600">Tata Capital</div></td>
+              <td class="worst-rate">10.99% – 35%</td>
+              <td>₹75K – ₹35L</td>
+              <td>6 years</td>
+              <td>Up to 3%</td>
+              <td>Same day</td>
+              <td>₹20,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fs-11 text-light mt-8">* For pre-approved customers only</p>
+      <div class="info-box info-orange mt-12">
+        <div class="info-box-title text-orange">⚠️ Watch out for</div>
+        <div class="fs-12 text-mid">Processing fee + GST + insurance premium can add 3–5% to your effective cost. Always ask for the total disbursed amount vs total repayment before signing.</div>
+      </div>
+    </div>
+
+
+    <!-- ===== INSTANT LOAN APPS ===== -->
+    <div id="instant-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>⚡ Instant Loan Apps</h2>
+        <span class="best-tag">Best for gig workers & low salary</span>
+        <a href="instant-loan-apps.html" style="font-size:12px;color:var(--orange);font-weight:600;margin-left:auto">Full guide →</a>
+      </div>
+      <p class="fs-12 text-light mb-16">App-based instant loans — approval in 10 minutes. Ideal for salaries under ₹25,000 and gig workers. All RBI-registered NBFCs.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>App</th>
+              <th>Loan Amount</th>
+              <th>Tenure</th>
+              <th>Rate (APR)</th>
+              <th>Approval</th>
+              <th>Min Salary</th>
+              <th>Gig OK?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">KreditBee</div><div><span class="tag tag-orange">🔥 Editor's Pick</span></div></td>
+              <td class="text-blue fw-600">₹1K – ₹4L</td>
+              <td>3–24 months</td>
+              <td class="mid-rate">17–29.95%</td>
+              <td><span class="tag tag-green">15 min</span></td>
+              <td>₹10,000</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">Navi</div><div><span class="tag tag-green">⭐ Lowest Rate</span></div></td>
+              <td class="text-blue fw-600">₹10K – ₹20L</td>
+              <td>3–72 months</td>
+              <td class="best-rate">9.9–45%</td>
+              <td><span class="tag tag-green">10 min</span></td>
+              <td>₹15,000</td>
+              <td class="text-orange fw-600">⚠️ Limited</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">mPokket</div><div><span class="tag tag-purple">🎓 Students OK</span></div></td>
+              <td class="text-blue fw-600">₹500 – ₹30K</td>
+              <td>2–4 months</td>
+              <td class="worst-rate">30–48%</td>
+              <td><span class="tag tag-green">10 min</span></td>
+              <td>No min</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">MoneyView</div><div><span class="tag tag-blue">Low salary</span></div></td>
+              <td class="text-blue fw-600">₹5K – ₹10L</td>
+              <td>6–60 months</td>
+              <td class="mid-rate">16–39%</td>
+              <td><span class="tag tag-green">30 min</span></td>
+              <td>₹13,500</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">5</td>
+              <td><div class="fw-600">CASHe</div></td>
+              <td class="text-blue fw-600">₹1K – ₹4L</td>
+              <td>9–540 days</td>
+              <td class="mid-rate">27–33%</td>
+              <td><span class="tag tag-green">1 hour</span></td>
+              <td>₹12,000</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">6</td>
+              <td><div class="fw-600">Fibe (EarlySalary)</div><div><span class="tag tag-orange">📅 45-day loans</span></div></td>
+              <td class="text-blue fw-600">₹5K – ₹5L</td>
+              <td>7–90 days</td>
+              <td class="mid-rate">24–30%</td>
+              <td><span class="tag tag-green">2 hours</span></td>
+              <td>₹18,000</td>
+              <td class="text-orange fw-600">⚠️ Limited</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">7</td>
+              <td><div class="fw-600">PaySense</div></td>
+              <td class="text-blue fw-600">₹5K – ₹5L</td>
+              <td>3–60 months</td>
+              <td class="mid-rate">16–36%</td>
+              <td><span class="tag tag-green">2 hours</span></td>
+              <td>₹12,000</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">8</td>
+              <td><div class="fw-600">Stashfin</div><div><span class="tag tag-blue">Low CIBIL OK</span></div></td>
+              <td class="text-blue fw-600">₹1K – ₹5L</td>
+              <td>3–36 months</td>
+              <td class="worst-rate">11.99–59.99%</td>
+              <td><span class="tag tag-orange">4 hours</span></td>
+              <td>₹15,000</td>
+              <td class="text-green fw-600">✅ Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:14px;text-align:right">
+        <a href="instant-loan-apps.html" class="btn btn-orange btn-sm">Full Instant Loan Guide →</a>
+      </div>
+    </div>
+
+
+    <!-- ===== CAR LOAN ===== -->
+    <div id="car-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>🚗 Car Loan Rates</h2>
+        <span class="best-tag">Best: 8.75% — SBI</span>
+      </div>
+      <p class="fs-12 text-light mb-16">For new cars. Used car loans are typically 1–3% higher. Loan covers up to 90% of on-road price.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lender</th>
+              <th>Interest Rate</th>
+              <th>Max Loan</th>
+              <th>Max Tenure</th>
+              <th>Processing Fee</th>
+              <th>Prepayment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">SBI</div><div><span class="tag tag-green">Lowest Rate</span></div></td>
+              <td class="best-rate">8.75% – 9.25%</td>
+              <td>100% on-road</td>
+              <td>7 years</td>
+              <td>₹1,000 + GST</td>
+              <td>Free after 6 EMIs</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">Bank of Baroda</div></td>
+              <td class="best-rate">8.80% – 11.30%</td>
+              <td>90% on-road</td>
+              <td>7 years</td>
+              <td>0.50% (max ₹5,000)</td>
+              <td>No charges</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">HDFC Bank</div></td>
+              <td class="mid-rate">9% – 12%</td>
+              <td>100% ex-showroom</td>
+              <td>7 years</td>
+              <td>0.40% (max ₹10,000)</td>
+              <td>6% for 13–24 months</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">ICICI Bank</div></td>
+              <td class="mid-rate">9% – 12%</td>
+              <td>100% on-road</td>
+              <td>7 years</td>
+              <td>0.50%</td>
+              <td>5% of outstanding</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">5</td>
+              <td><div class="fw-600">Kotak Mahindra</div></td>
+              <td class="mid-rate">8.99% – 14%</td>
+              <td>90% on-road</td>
+              <td>7 years</td>
+              <td>₹3,500 – ₹5,000</td>
+              <td>No charges after 1 year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-box info-green mt-12">
+        <div class="info-box-title text-green">💡 Car Loan Tip</div>
+        <div class="fs-12 text-mid">SBI car loans are cheapest but slower (3–5 days). HDFC and ICICI approve in 30 minutes for existing customers. Choose based on urgency vs cost.</div>
+      </div>
+    </div>
+
+
+    <!-- ===== BUSINESS LOAN ===== -->
+    <div id="business-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>🏪 Business Loan Rates</h2>
+        <span class="best-tag">Best: 11.20% — SBI</span>
+      </div>
+      <p class="fs-12 text-light mb-16">For self-employed and business owners. Requires 2–3 years of ITR. Some NBFCs approve in 24 hours.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lender</th>
+              <th>Interest Rate</th>
+              <th>Loan Amount</th>
+              <th>Max Tenure</th>
+              <th>Processing Fee</th>
+              <th>Collateral</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">SBI (SME Loans)</div><div><span class="tag tag-green">Lowest Rate</span></div></td>
+              <td class="best-rate">11.20%+</td>
+              <td>Up to ₹50L</td>
+              <td>5 years</td>
+              <td>1%</td>
+              <td>May be required</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">HDFC Bank</div></td>
+              <td class="mid-rate">15% – 21.35%</td>
+              <td>₹50K – ₹75L</td>
+              <td>4 years</td>
+              <td>Up to 2%</td>
+              <td>None (unsecured)</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">Bajaj Finance</div><div><span class="tag tag-blue">Fastest</span></div></td>
+              <td class="mid-rate">14% – 26%</td>
+              <td>₹1L – ₹80L</td>
+              <td>7 years</td>
+              <td>Up to 3%</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">Lendingkart</div></td>
+              <td class="mid-rate">12% – 27%</td>
+              <td>₹50K – ₹2Cr</td>
+              <td>3 years</td>
+              <td>2–3%</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">5</td>
+              <td><div class="fw-600">Tata Capital</div></td>
+              <td class="worst-rate">12% – 30%</td>
+              <td>₹1L – ₹75L</td>
+              <td>5 years</td>
+              <td>Up to 3%</td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- ===== EDUCATION LOAN ===== -->
+    <div id="education-loan" class="loan-section card mb-24">
+      <div class="section-heading mb-8">
+        <h2>🎓 Education Loan Rates</h2>
+        <span class="best-tag">Best: 8.15% — SBI Vidya Lakshmi</span>
+      </div>
+      <p class="fs-12 text-light mb-16">Moratorium period available — start repaying 6–12 months after course completion. Government subsidy available for income below ₹4.5L/year.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lender</th>
+              <th>Interest Rate</th>
+              <th>Max Loan (India)</th>
+              <th>Max Loan (Abroad)</th>
+              <th>Processing Fee</th>
+              <th>Collateral</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td class="fw-600 text-orange">1</td>
+              <td><div class="fw-600">SBI Vidya Lakshmi</div><div><span class="tag tag-green">Lowest Rate</span></div></td>
+              <td class="best-rate">8.15% – 10.85%</td>
+              <td>₹10 Lakh</td>
+              <td>₹1.5 Crore</td>
+              <td>Nil</td>
+              <td>Above ₹7.5L</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">2</td>
+              <td><div class="fw-600">Bank of Baroda</div></td>
+              <td class="mid-rate">9.70%+</td>
+              <td>₹10 Lakh</td>
+              <td>₹80 Lakh</td>
+              <td>Nil</td>
+              <td>Above ₹7.5L</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">3</td>
+              <td><div class="fw-600">HDFC Credila</div></td>
+              <td class="mid-rate">9.50% – 13%</td>
+              <td>₹20 Lakh</td>
+              <td>No limit</td>
+              <td>1%</td>
+              <td>Case by case</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">4</td>
+              <td><div class="fw-600">Axis Bank</div></td>
+              <td class="worst-rate">13.70%+</td>
+              <td>₹10 Lakh</td>
+              <td>₹75 Lakh</td>
+              <td>1%</td>
+              <td>Above ₹7.5L</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-box info-blue mt-12">
+        <div class="info-box-title text-blue">🎓 Government Subsidy</div>
+        <div class="fs-12 text-mid">If your family income is below ₹4.5 lakh/year, you qualify for Central Sector Interest Subsidy — government pays interest during moratorium period. Apply through Vidya Lakshmi Portal.</div>
+      </div>
+    </div>
+
+
+    <!-- HOW TO CHOOSE -->
+    <div class="card mb-24">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:16px">🎯 How to Choose the Right Loan</h2>
+      <div class="grid-2">
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">1. Compare total cost, not just rate</div>
+          <div class="fs-12 text-mid">Processing fee + GST + insurance can add 2–5% to your real cost. Always calculate total repayment amount, not just monthly EMI.</div>
+        </div>
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">2. Check prepayment charges</div>
+          <div class="fs-12 text-mid">Planning to pay off early? Banks like SBI charge nothing. Some NBFCs charge 4–6% on outstanding amount. This matters if you get a bonus.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">3. Match tenure to your cash flow</div>
+          <div class="fs-12 text-mid">Longer tenure = lower EMI but more interest. Shorter tenure = higher EMI but saves lakhs. Use our EMI calculator to find your sweet spot.</div>
+        </div>
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">4. Apply to max 2 lenders at once</div>
+          <div class="fs-12 text-mid">Each application is a hard inquiry on your CIBIL. Applying to 5 banks drops your score by 25–50 points. Short-list 2 and apply simultaneously.</div>
+        </div>
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">5. Negotiate — always</div>
+          <div class="fs-12 text-mid">If your CIBIL is 750+, always ask for 0.25–0.5% rate reduction and zero processing fee. Banks want your business — especially salaried customers.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">6. Read the fine print on insurance</div>
+          <div class="fs-12 text-mid">Banks often bundle loan protection insurance. It's optional — you can decline. Forced insurance on a ₹30L loan can cost ₹80,000–₹1.5L extra.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- BANK VS NBFC -->
+    <div class="card mb-24">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:16px">🏦 Bank vs NBFC — Which is Better?</h2>
+      <div class="grid-2">
+        <div style="border:2px solid var(--blue);border-radius:12px;padding:20px">
+          <h3 style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:12px">🏦 Bank</h3>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Lower interest rates (8.5–15%)</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Lower processing fees</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-green">✅</span><span>More regulated — RBI governed</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Better for large amounts (₹10L+)</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Strict eligibility — 750+ CIBIL needed</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Slow processing — 3–7 days</span></div>
+            <div class="fs-12 text-mid display-flex" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Lots of paperwork</span></div>
+          </div>
+          <div class="info-box info-blue mt-12" style="margin-bottom:0">
+            <div class="fs-12"><strong>Best for:</strong> Salaried with 750+ CIBIL needing ₹5L+ at the lowest rate</div>
+          </div>
+        </div>
+        <div style="border:2px solid var(--orange);border-radius:12px;padding:20px">
+          <h3 style="font-size:15px;font-weight:700;color:var(--orange);margin-bottom:12px">⚡ NBFC / App</h3>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Approves low CIBIL (even 550+)</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Very fast — 10 minutes to 24 hours</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Minimal documents — Aadhar + PAN</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-green">✅</span><span>Accepts gig and self-employed income</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Higher rates (17–45%)</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Higher processing fees (2–6%)</span></div>
+            <div class="fs-12 text-mid" style="display:flex;gap:6px"><span class="text-red">❌</span><span>Smaller loan amounts (up to ₹5L)</span></div>
+          </div>
+          <div class="info-box info-orange mt-12" style="margin-bottom:0">
+            <div class="fs-12"><strong>Best for:</strong> Gig workers, low salary, urgent need, low CIBIL borrowers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(135deg,var(--blue),#1976D2);border-radius:var(--radius);padding:28px;text-align:center">
+      <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Know which loan fits you — check eligibility</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:20px">Enter your salary and get a personalised loan match in seconds</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="eligibility.html" class="btn btn-orange">Check My Eligibility →</a>
+        <a href="emi-calculator.html" class="btn btn-ghost">Calculate EMI</a>
+        <a href="instant-loan-apps.html" class="btn btn-ghost">Instant Loan Apps</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Loan Types</h4>
+      <ul>
+        <li><a href="#home-loan">Home Loan</a></li>
+        <li><a href="#personal-loan">Personal Loan</a></li>
+        <li><a href="#instant-loan">Instant Apps</a></li>
+        <li><a href="#car-loan">Car Loan</a></li>
+        <li><a href="#education-loan">Education Loan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Rates as of June 2026. Verify with lender before applying.</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Load rates from JSON and patch tables + stat chips
+(function () {
+  var path = 'data/rates.json';
+
+  function matchBank(htmlName, jsonRows) {
+    var n = htmlName.toLowerCase().trim();
+    return jsonRows.find(function (r) {
+      var j = (r.bank || r.name || '').toLowerCase();
+      return n === j || n.includes(j) || j.includes(n) ||
+        n.split(' ')[0] === j.split(' ')[0];
+    });
+  }
+
+  function patchSection(sectionId, jsonRows, rateCol) {
+    rateCol = rateCol !== undefined ? rateCol : 2;
+    var section = document.getElementById(sectionId);
+    if (!section || !jsonRows || !jsonRows.length) return;
+
+    // Update best-tag chip with lowest-rate entry from JSON
+    var best = jsonRows[0];
+    var bestTag = section.querySelector('.best-tag');
+    if (bestTag && best) {
+      var rate = best.rateFrom || best.rateMin;
+      var name = best.bank || best.name;
+      bestTag.textContent = 'Best: ' + rate + '% — ' + name;
+    }
+
+    var trs = section.querySelectorAll('tbody tr');
+    trs.forEach(function (tr) {
+      var nameDiv = tr.cells[1] && tr.cells[1].querySelector('.fw-600');
+      if (!nameDiv) return;
+      var htmlName = nameDiv.textContent.trim();
+      var match = matchBank(htmlName, jsonRows);
+      if (!match) return;
+
+      // Update rate cell
+      var rateCell = tr.cells[rateCol];
+      if (rateCell) {
+        var from = match.rateFrom || match.rateMin || '';
+        var to   = match.rateTo   || match.rateMax || '';
+        if (from) rateCell.textContent = from + '% – ' + to + '%';
+      }
+
+      // Wrap bank name in clickable link
+      if (match.url && !nameDiv.querySelector('a')) {
+        nameDiv.innerHTML =
+          '<a href="' + match.url + '" target="_blank" rel="noopener noreferrer" ' +
+          'style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(0,0,0,0.25)">' +
+          htmlName + ' ↗</a>';
+      }
+    });
+  }
+
+  fetch(path)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      patchSection('home-loan',      data.homeLoan,      2);
+      patchSection('personal-loan',  data.personalLoan,  2);
+      patchSection('instant-loan',   data.instantApps,   4);
+      patchSection('car-loan',       data.carLoan,       2);
+      patchSection('business-loan',  data.businessLoan,  2);
+      patchSection('education-loan', data.educationLoan, 2);
+    })
+    .catch(function () { /* keep static fallback if file missing */ });
+})();
+</script>
+
+</body>
+</html>

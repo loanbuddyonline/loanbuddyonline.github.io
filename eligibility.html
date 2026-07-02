@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Loan Eligibility Calculator India — Find out how much home loan, personal loan or car loan you can get based on your salary and CIBIL score.">
+  <title>Loan Eligibility Calculator — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .emp-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+    .emp-btn {
+      padding:8px 16px; border-radius:20px; font-size:13px; font-weight:500;
+      border:2px solid var(--border); background:var(--white); color:var(--text-mid);
+      cursor:pointer; transition:all 0.2s;
+    }
+    .emp-btn.active { background:var(--green); color:var(--white); border-color:var(--green); }
+    .emp-btn:hover:not(.active) { border-color:var(--green); color:var(--green); }
+    .cibil-bar-wrap { margin:12px 0; }
+    .cibil-bar-bg { background:#e0e0e0; border-radius:8px; height:12px; overflow:hidden; position:relative; }
+    .cibil-bar-fill { height:100%; border-radius:8px; transition:width 0.4s; }
+    .result-card {
+      border-radius:var(--radius); padding:20px; text-align:center;
+      margin-bottom:12px;
+    }
+    .result-main { font-size:32px; font-weight:700; margin-bottom:4px; }
+    .result-label { font-size:13px; opacity:0.85; }
+    .factor-row {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;
+    }
+    .factor-row:last-child { border-bottom:none; }
+    .factor-label { color:var(--text-mid); }
+    .factor-val { font-weight:600; color:var(--text-dark); }
+    .bank-elig-row { display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid #f0f0f0; }
+    .bank-elig-row:last-child { border-bottom:none; }
+    .bank-bar-bg { flex:1; background:#f0f0f0; border-radius:6px; height:8px; overflow:hidden; }
+    .bank-bar-fill { height:100%; border-radius:6px; background:var(--blue); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html" class="active">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-green">
+  <div class="container">
+    <p class="hero-breadcrumb">🏠 Home › Eligibility Calculator</p>
+    <h1>✅ Loan Eligibility Calculator</h1>
+    <p>Find out exactly how much loan you qualify for — based on your salary, existing EMIs, and CIBIL score. Used by banks in India.</p>
+    <div class="hero-badges">
+      <span class="badge">📊 Uses real bank FOIR formula</span>
+      <span class="badge">🏦 Bank-wise breakdown</span>
+      <span class="badge">⚡ Instant result</span>
+      <span class="badge">✅ 100% Free</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start">
+
+      <!-- INPUT PANEL -->
+      <div class="calc-wrap">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:6px">Tell us about yourself</h2>
+        <p style="font-size:12px;color:var(--text-light);margin-bottom:20px">All fields are used to calculate your eligibility accurately</p>
+
+        <!-- EMPLOYMENT TYPE -->
+        <div class="form-group">
+          <label>Employment Type</label>
+          <div class="emp-tabs">
+            <button class="emp-btn active" onclick="setEmp('salaried',this)">💼 Salaried</button>
+            <button class="emp-btn" onclick="setEmp('self',this)">🏪 Self-Employed</button>
+            <button class="emp-btn" onclick="setEmp('gig',this)">🚗 Gig Worker</button>
+          </div>
+        </div>
+
+        <!-- MONTHLY INCOME -->
+        <div class="form-group">
+          <label id="incomeLabel">Net Monthly Salary (take-home): <strong id="incomeDisplay" style="color:var(--green)">₹40,000</strong></label>
+          <input type="range" id="income" min="8000" max="500000" step="1000" value="40000" oninput="syncRange('income','incomeNum');calcElig()">
+          <div class="range-labels"><span>₹8K</span><span>₹5L</span></div>
+          <input type="number" id="incomeNum" placeholder="Enter monthly income" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('incomeNum','income');calcElig()">
+        </div>
+
+        <!-- EXISTING EMIs -->
+        <div class="form-group">
+          <label>Existing Monthly EMIs (if any): <strong id="emiDisplay" style="color:var(--orange)">₹0</strong></label>
+          <input type="range" id="existingEmi" min="0" max="100000" step="500" value="0" oninput="syncRange('existingEmi','existingEmiNum');calcElig()">
+          <div class="range-labels"><span>₹0</span><span>₹1L</span></div>
+          <input type="number" id="existingEmiNum" placeholder="Enter existing EMIs" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('existingEmiNum','existingEmi');calcElig()">
+        </div>
+
+        <!-- CIBIL SCORE -->
+        <div class="form-group">
+          <label>Approximate CIBIL Score: <strong id="cibilDisplay" style="color:var(--blue)">750</strong></label>
+          <input type="range" id="cibil" min="300" max="900" step="10" value="750" oninput="syncRange('cibil','cibilNum');calcElig()">
+          <div class="range-labels"><span>300 (Poor)</span><span>900 (Excellent)</span></div>
+          <div class="cibil-bar-wrap">
+            <div class="cibil-bar-bg">
+              <div class="cibil-bar-fill" id="cibilBar" style="width:75%;background:var(--green)"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-light);margin-top:2px">
+            <span style="color:var(--red)">Poor</span>
+            <span style="color:var(--orange)">Fair</span>
+            <span style="color:#F9A825">Good</span>
+            <span style="color:var(--green)">Excellent</span>
+          </div>
+          <input type="number" id="cibilNum" placeholder="Or enter score" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('cibilNum','cibil');calcElig()">
+        </div>
+
+        <!-- LOAN TYPE -->
+        <div class="form-group">
+          <label>Loan Type</label>
+          <select id="loanType" onchange="calcElig()" style="padding:10px 14px;border:2px solid var(--border);border-radius:10px;width:100%;font-size:14px;background:var(--white)">
+            <option value="home">🏠 Home Loan</option>
+            <option value="personal">💼 Personal Loan</option>
+            <option value="car">🚗 Car Loan</option>
+            <option value="education">🎓 Education Loan</option>
+            <option value="business">🏪 Business Loan</option>
+          </select>
+        </div>
+
+        <!-- LOAN TENURE -->
+        <div class="form-group">
+          <label>Preferred Tenure: <strong id="tenureDisplay" style="color:var(--blue)">20 years</strong></label>
+          <input type="range" id="tenure" min="1" max="360" step="1" value="240" oninput="calcElig()">
+          <div class="range-labels" id="tenureLabels"><span>1 month</span><span>30 years</span></div>
+        </div>
+
+        <button onclick="calcElig()" class="btn btn-green" style="width:100%;font-size:15px;padding:14px">
+          ✅ Calculate My Eligibility
+        </button>
+      </div>
+
+      <!-- RESULTS PANEL -->
+      <div id="resultsPanel">
+
+        <!-- MAX LOAN RESULT -->
+        <div class="result-card" id="resultCard" style="background:linear-gradient(135deg,var(--green),#388E3C);color:#fff;margin-bottom:16px">
+          <div class="result-label">Maximum Loan You Can Get</div>
+          <div class="result-main" id="maxLoan">₹0</div>
+          <div style="font-size:12px;opacity:0.85;margin-top:4px" id="resultSub">Based on your inputs</div>
+        </div>
+
+        <!-- ELIGIBILITY FACTORS -->
+        <div class="card mb-16">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:12px">📊 How Your Eligibility is Calculated</h3>
+
+          <div class="factor-row">
+            <span class="factor-label">Net Monthly Income</span>
+            <span class="factor-val text-green" id="fIncome">₹0</span>
+          </div>
+          <div class="factor-row">
+            <span class="factor-label">Bank's FOIR Allowed <span style="font-size:10px;color:var(--text-light)" id="foirPct">(50%)</span></span>
+            <span class="factor-val text-blue" id="fFoir">₹0</span>
+          </div>
+          <div class="factor-row">
+            <span class="factor-label">Less: Existing EMIs</span>
+            <span class="factor-val text-orange" id="fExisting">- ₹0</span>
+          </div>
+          <div class="factor-row" style="border-top:2px solid var(--border);margin-top:4px;padding-top:12px">
+            <span class="factor-label fw-600">Available EMI Budget</span>
+            <span class="factor-val text-green fw-700" id="fAvailEmi">₹0</span>
+          </div>
+          <div class="factor-row">
+            <span class="factor-label">Interest Rate Applied</span>
+            <span class="factor-val" id="fRate">0%</span>
+          </div>
+          <div class="factor-row">
+            <span class="factor-label">Tenure</span>
+            <span class="factor-val" id="fTenure">0 months</span>
+          </div>
+          <div class="factor-row" style="border-top:2px solid var(--border);margin-top:4px;padding-top:12px">
+            <span class="factor-label fw-600">Max Eligible Loan</span>
+            <span class="factor-val text-green fw-700" id="fMaxLoan2">₹0</span>
+          </div>
+        </div>
+
+        <!-- CIBIL IMPACT -->
+        <div class="card mb-16" id="cibilImpact">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:12px">📈 CIBIL Score Impact</h3>
+          <div id="cibilMsg" style="font-size:13px;line-height:1.7;padding:12px;border-radius:8px"></div>
+        </div>
+
+        <!-- BANK-WISE ELIGIBILITY -->
+        <div class="card">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:4px">🏦 Bank-wise Eligibility Estimate</h3>
+          <p style="font-size:11px;color:var(--text-light);margin-bottom:14px">Different banks use different FOIR limits</p>
+          <div id="bankEligList"></div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- TIPS SECTION -->
+    <div class="card mt-24">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">💡 How to Increase Your Loan Eligibility</h3>
+      <div class="grid-3">
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">💰 Add a co-applicant</div>
+          <div style="font-size:12px;color:var(--text-mid)">Adding a working spouse or parent as co-applicant combines both incomes — can double your eligibility. Most banks allow this.</div>
+        </div>
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">📈 Improve CIBIL score first</div>
+          <div style="font-size:12px;color:var(--text-mid)">Moving from 650 to 750 can increase your eligible loan by 15–20% as banks offer lower rates to better scores.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">💳 Close existing loans first</div>
+          <div style="font-size:12px;color:var(--text-mid)">Each ₹5,000 in existing EMI reduces eligibility by ₹3–5 lakh. Closing small loans before applying helps significantly.</div>
+        </div>
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">📄 Include all income sources</div>
+          <div style="font-size:12px;color:var(--text-mid)">Rental income, part-time income, and investment returns can be included. Show bank statements for all income sources.</div>
+        </div>
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">⏱️ Choose longer tenure</div>
+          <div style="font-size:12px;color:var(--text-mid)">A 30-year home loan has lower EMI than 15-year, so you qualify for a larger amount. You can always prepay later.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">🏦 Try NBFCs if banks reject</div>
+          <div style="font-size:12px;color:var(--text-mid)">NBFCs like Bajaj Finance, HDFC Ltd, and Tata Capital have more flexible income criteria than traditional banks.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- INCOME VS LOAN TABLE -->
+    <div class="card mt-24">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px">📋 Salary vs Loan Amount Quick Reference</h3>
+      <p style="font-size:12px;color:var(--text-light);margin-bottom:16px">Approximate eligibility for a salaried person with 750+ CIBIL and no existing EMIs</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Monthly Salary</th>
+              <th>Home Loan (20 yr)</th>
+              <th>Personal Loan (5 yr)</th>
+              <th>Car Loan (7 yr)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="fw-600">₹15,000</td><td class="text-blue">₹8–10 Lakh</td><td class="text-green">₹3–4 Lakh</td><td class="text-orange">₹4–5 Lakh</td></tr>
+            <tr><td class="fw-600">₹20,000</td><td class="text-blue">₹12–15 Lakh</td><td class="text-green">₹4–6 Lakh</td><td class="text-orange">₹6–8 Lakh</td></tr>
+            <tr><td class="fw-600">₹30,000</td><td class="text-blue">₹18–22 Lakh</td><td class="text-green">₹6–9 Lakh</td><td class="text-orange">₹9–12 Lakh</td></tr>
+            <tr><td class="fw-600">₹50,000</td><td class="text-blue">₹30–40 Lakh</td><td class="text-green">₹10–15 Lakh</td><td class="text-orange">₹15–20 Lakh</td></tr>
+            <tr><td class="fw-600">₹75,000</td><td class="text-blue">₹45–55 Lakh</td><td class="text-green">₹15–22 Lakh</td><td class="text-orange">₹22–30 Lakh</td></tr>
+            <tr><td class="fw-600">₹1,00,000</td><td class="text-blue">₹60–75 Lakh</td><td class="text-green">₹20–30 Lakh</td><td class="text-orange">₹30–40 Lakh</td></tr>
+            <tr><td class="fw-600">₹1,50,000</td><td class="text-blue">₹90 L–1.1 Cr</td><td class="text-green">₹30–45 Lakh</td><td class="text-orange">₹45–60 Lakh</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--text-light);margin-top:8px">* Indicative only. Actual eligibility depends on bank policy, CIBIL score, and existing obligations.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:var(--green);padding:36px 20px;text-align:center">
+  <div class="container">
+    <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Know your eligibility — now find the best rate</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,0.88);margin-bottom:20px">Compare interest rates across 50+ Indian lenders</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="compare-loans.html" class="btn btn-orange">Compare Loan Rates →</a>
+      <a href="emi-calculator.html" class="btn btn-ghost">Calculate EMI</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="cibil-score.html#improve-score">Improve CIBIL</a></li>
+        <li><a href="instant-loan-apps.html#gig-workers">Loans for Gig Workers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Rates are indicative. Verify with lender before applying.</p>
+  </div>
+</footer>
+
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== SYNC =====
+function syncRange(rangeId, numId) {
+  document.getElementById(numId).value = document.getElementById(rangeId).value;
+}
+function syncNum(numId, rangeId) {
+  const slider = document.getElementById(rangeId);
+  const val = parseFloat(document.getElementById(numId).value);
+  if (!isNaN(val)) slider.value = Math.min(Math.max(val, slider.min), slider.max);
+}
+
+// ===== FORMAT =====
+function fmt(n) {
+  if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + ' Cr';
+  if (n >= 100000)   return '₹' + (n/100000).toFixed(2) + ' Lakh';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+function fmtShort(n) {
+  if (n >= 10000000) return '₹' + (n/10000000).toFixed(1) + 'Cr';
+  if (n >= 100000)   return '₹' + (n/100000).toFixed(1) + 'L';
+  if (n >= 1000)     return '₹' + (n/1000).toFixed(0) + 'K';
+  return '₹' + Math.round(n);
+}
+
+// ===== LOAN TYPE CONFIG =====
+const loanConfig = {
+  home:      { rate:8.5,  tenureMax:360, foirSalaried:0.50, foirSelf:0.50, foirGig:0.40 },
+  personal:  { rate:14,   tenureMax:84,  foirSalaried:0.50, foirSelf:0.45, foirGig:0.40 },
+  car:       { rate:9,    tenureMax:84,  foirSalaried:0.50, foirSelf:0.45, foirGig:0.40 },
+  education: { rate:10,   tenureMax:180, foirSalaried:0.50, foirSelf:0.50, foirGig:0.40 },
+  business:  { rate:15,   tenureMax:84,  foirSalaried:0.50, foirSelf:0.55, foirGig:0.45 }
+};
+
+const banks = [
+  { name:'SBI',          foir:0.50, rateAdj:0 },
+  { name:'HDFC Bank',    foir:0.50, rateAdj:0.25 },
+  { name:'ICICI Bank',   foir:0.55, rateAdj:0.25 },
+  { name:'Axis Bank',    foir:0.50, rateAdj:0.25 },
+  { name:'Kotak Bank',   foir:0.50, rateAdj:0.20 },
+  { name:'Bajaj Finance',foir:0.60, rateAdj:1.5  },
+];
+
+let empType = 'salaried';
+
+function setEmp(type, btn) {
+  empType = type;
+  document.querySelectorAll('.emp-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const label = document.getElementById('incomeLabel');
+  if (type === 'salaried') label.childNodes[0].textContent = 'Net Monthly Salary (take-home): ';
+  else if (type === 'self') label.childNodes[0].textContent = 'Average Monthly Business Income: ';
+  else label.childNodes[0].textContent = 'Average Monthly Gig Earnings: ';
+  calcElig();
+}
+
+function getCibilMultiplier(score) {
+  if (score >= 800) return 1.15;
+  if (score >= 750) return 1.0;
+  if (score >= 700) return 0.90;
+  if (score >= 650) return 0.75;
+  if (score >= 600) return 0.55;
+  return 0;
+}
+
+function calcMaxLoan(availEmi, rate, months) {
+  const R = rate / 12 / 100;
+  if (R === 0) return availEmi * months;
+  return availEmi * (Math.pow(1+R, months) - 1) / (R * Math.pow(1+R, months));
+}
+
+function calcElig() {
+  const income      = parseFloat(document.getElementById('income').value) || 0;
+  const existingEmi = parseFloat(document.getElementById('existingEmi').value) || 0;
+  const cibil       = parseInt(document.getElementById('cibil').value) || 750;
+  const loanType    = document.getElementById('loanType').value;
+  const tenureMonths= parseInt(document.getElementById('tenure').value) || 240;
+
+  // Update displays
+  document.getElementById('incomeDisplay').textContent = fmtShort(income);
+  document.getElementById('emiDisplay').textContent    = fmtShort(existingEmi);
+  document.getElementById('cibilDisplay').textContent  = cibil;
+  document.getElementById('tenureDisplay').textContent =
+    tenureMonths < 12 ? tenureMonths + ' months' : (tenureMonths/12).toFixed(1) + ' years';
+
+  // CIBIL bar
+  const cibilPct = ((cibil - 300) / 600) * 100;
+  const cibilBar = document.getElementById('cibilBar');
+  cibilBar.style.width = cibilPct + '%';
+  cibilBar.style.background = cibil >= 750 ? 'var(--green)' : cibil >= 650 ? '#F9A825' : cibil >= 550 ? 'var(--orange)' : 'var(--red)';
+
+  const cfg  = loanConfig[loanType];
+  const foir = empType === 'salaried' ? cfg.foirSalaried : empType === 'self' ? cfg.foirSelf : cfg.foirGig;
+  const foirAmt   = income * foir;
+  const availEmi  = Math.max(0, foirAmt - existingEmi);
+  const cibilMult = getCibilMultiplier(cibil);
+  const effectiveAvail = availEmi * cibilMult;
+  const maxLoan = cibilMult === 0 ? 0 : calcMaxLoan(effectiveAvail, cfg.rate, tenureMonths);
+
+  // Main result
+  document.getElementById('maxLoan').textContent = fmt(maxLoan);
+  document.getElementById('resultSub').textContent =
+    cibil < 600 ? '⚠️ Low CIBIL — most banks will decline' :
+    cibil < 650 ? '⚠️ Fair CIBIL — NBFCs may approve at higher rate' :
+    '✅ Based on salary, EMIs, and CIBIL score';
+
+  const rc = document.getElementById('resultCard');
+  rc.style.background = maxLoan === 0 ? 'linear-gradient(135deg,var(--red),#B71C1C)' :
+    cibil < 650 ? 'linear-gradient(135deg,var(--orange),#BF360C)' :
+    'linear-gradient(135deg,var(--green),#388E3C)';
+
+  // Factor breakdown
+  document.getElementById('fIncome').textContent   = fmtShort(income);
+  document.getElementById('foirPct').textContent   = '(' + Math.round(foir*100) + '% of income)';
+  document.getElementById('fFoir').textContent     = fmtShort(foirAmt);
+  document.getElementById('fExisting').textContent = '- ' + fmtShort(existingEmi);
+  document.getElementById('fAvailEmi').textContent = fmtShort(availEmi);
+  document.getElementById('fRate').textContent     = cfg.rate + '% p.a.';
+  document.getElementById('fTenure').textContent   = tenureMonths + ' months';
+  document.getElementById('fMaxLoan2').textContent = fmt(maxLoan);
+
+  // CIBIL message
+  const cibilMsg = document.getElementById('cibilMsg');
+  if (cibil >= 800) {
+    cibilMsg.style.background = 'var(--green-light)';
+    cibilMsg.style.color = 'var(--green)';
+    cibilMsg.innerHTML = '<strong>🌟 Excellent (800+)</strong> — You qualify for the best interest rates. Banks will compete for your application. Eligibility boosted by +15%.';
+  } else if (cibil >= 750) {
+    cibilMsg.style.background = 'var(--green-light)';
+    cibilMsg.style.color = 'var(--green)';
+    cibilMsg.innerHTML = '<strong>✅ Very Good (750+)</strong> — All major banks will approve. Negotiate for 0.25–0.5% rate reduction. Standard eligibility applied.';
+  } else if (cibil >= 700) {
+    cibilMsg.style.background = 'var(--blue-light)';
+    cibilMsg.style.color = 'var(--blue)';
+    cibilMsg.innerHTML = '<strong>📊 Good (700–749)</strong> — Most banks will approve but at slightly higher rates. Eligibility reduced by ~10%. Improve to 750+ for better terms.';
+  } else if (cibil >= 650) {
+    cibilMsg.style.background = 'var(--orange-light)';
+    cibilMsg.style.color = 'var(--orange)';
+    cibilMsg.innerHTML = '<strong>⚠️ Fair (650–699)</strong> — Some banks may decline. NBFCs more likely to approve at 18–24%. Eligibility reduced by ~25%. <a href="cibil-score.html#improve-score">How to improve →</a>';
+  } else if (cibil >= 600) {
+    cibilMsg.style.background = 'var(--orange-light)';
+    cibilMsg.style.color = 'var(--red)';
+    cibilMsg.innerHTML = '<strong>🔴 Poor (600–649)</strong> — Most banks will reject. Try KreditBee, Stashfin, or CASHe. Eligibility reduced by ~45%. <a href="cibil-score.html#improve-score">Improve your score first →</a>';
+  } else {
+    cibilMsg.style.background = 'var(--red-light)';
+    cibilMsg.style.color = 'var(--red)';
+    cibilMsg.innerHTML = '<strong>❌ Very Poor (below 600)</strong> — Loan approval very unlikely from any formal lender. Focus on improving CIBIL before applying. <a href="cibil-score.html">Full guide →</a>';
+  }
+
+  // Bank-wise eligibility
+  const bankList = document.getElementById('bankEligList');
+  const maxBankLoan = Math.max(...banks.map(b => {
+    const bFoir = b.foir;
+    const bAvail = Math.max(0, income * bFoir - existingEmi) * cibilMult;
+    return calcMaxLoan(bAvail, cfg.rate + b.rateAdj, tenureMonths);
+  }));
+
+  bankList.innerHTML = banks.map(b => {
+    const bAvail = Math.max(0, income * b.foir - existingEmi) * cibilMult;
+    const bLoan  = cibilMult === 0 ? 0 : calcMaxLoan(bAvail, cfg.rate + b.rateAdj, tenureMonths);
+    const barPct = maxBankLoan > 0 ? Math.round((bLoan / maxBankLoan) * 100) : 0;
+    return `
+      <div class="bank-elig-row">
+        <div style="min-width:110px;font-size:12px;font-weight:600;color:var(--text-dark)">${b.name}</div>
+        <div class="bank-bar-bg"><div class="bank-bar-fill" style="width:${barPct}%"></div></div>
+        <div style="min-width:80px;text-align:right;font-size:12px;font-weight:600;color:var(--blue)">${fmtShort(bLoan)}</div>
+      </div>`;
+  }).join('');
+}
+
+// Init
+calcElig();
+</script>
+
+</body>
+</html>

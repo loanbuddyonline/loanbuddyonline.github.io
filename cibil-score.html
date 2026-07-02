@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CIBIL score guide India — what is a good CIBIL score, how to check free, how to improve from 600 to 750+. Complete guide 2026.">
+  <title>CIBIL Score Guide India 2026 — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .score-bar-wrap { background: linear-gradient(90deg, #e53935 0%, #FB8C00 30%, #FDD835 55%, #66BB6A 75%, #1E88E5 100%); height: 20px; border-radius: 10px; position: relative; margin: 18px 0 8px; }
+    .score-pointer { position: absolute; top: -8px; width: 2px; height: 36px; background: #222; transition: left 0.5s; }
+    .score-pointer::after { content: '▼'; position: absolute; top: -16px; left: -6px; font-size: 14px; color: #222; }
+    .score-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-light); margin-top: 4px; }
+    .score-zones { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin-top: 16px; }
+    .zone-chip { border-radius: 8px; padding: 10px 6px; text-align: center; }
+    .zone-score { font-size: 13px; font-weight: 700; }
+    .zone-label { font-size: 10px; margin-top: 2px; }
+    .factor-bar-wrap { background: var(--border); border-radius: 4px; height: 8px; flex: 1; overflow: hidden; }
+    .factor-bar { height: 100%; border-radius: 4px; transition: width 0.8s; }
+    .factor-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .factor-row:last-child { border-bottom: none; }
+    .factor-label { font-size: 12px; font-weight: 600; min-width: 140px; }
+    .factor-pct { font-size: 12px; font-weight: 700; min-width: 36px; text-align: right; }
+    .checker-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; background: var(--white); display: flex; flex-direction: column; gap: 8px; transition: box-shadow 0.2s, transform 0.2s; }
+    .checker-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .checker-name { font-size: 14px; font-weight: 700; }
+    .checker-free { font-size: 11px; }
+    .timeline-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-month { min-width: 70px; font-size: 11px; font-weight: 700; color: var(--blue); background: var(--blue-light); border-radius: 6px; padding: 4px 8px; text-align: center; height: fit-content; }
+    .myth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .myth-card { border-radius: 10px; padding: 12px; }
+    .myth-title { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+    .myth-body { font-size: 11px; color: var(--text-mid); line-height: 1.6; }
+    @media (max-width: 600px) { .myth-grid { grid-template-columns: 1fr; } .score-zones { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html" class="active">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-green">
+  <div class="container">
+    <p class="hero-breadcrumb">🏠 Home › CIBIL Score Guide</p>
+    <h1>📊 CIBIL Score — Complete Guide 2026</h1>
+    <p>Understand what your CIBIL score means, how banks use it, how to check it free, and the step-by-step plan to improve from 600 to 750+ in 12 months.</p>
+    <div class="hero-badges">
+      <span class="badge">✅ Free score checkers listed</span>
+      <span class="badge">📈 750+ improvement plan</span>
+      <span class="badge">🏦 How banks use it</span>
+      <span class="badge">⚠️ Myths busted</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- JUMP LINKS -->
+    <div class="jump-links mb-24">
+      <span>Jump to:</span>
+      <a href="#what-is-cibil">What is CIBIL</a>
+      <a href="#score-checker">Check Free</a>
+      <a href="#score-ranges">Score Ranges</a>
+      <a href="#factors">What Affects It</a>
+      <a href="#improve">How to Improve</a>
+      <a href="#timeline">12-Month Plan</a>
+      <a href="#myths">Myths vs Facts</a>
+    </div>
+
+    <!-- SCORE SIMULATOR -->
+    <div class="card mb-24">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">🔢 CIBIL Score Simulator</h2>
+      <p class="fs-12 text-light mb-16">Enter your approximate score — see what it means and what loan rates you qualify for</p>
+
+      <div class="form-group">
+        <label style="font-size:12px;font-weight:600;margin-bottom:6px;display:block">
+          Your CIBIL Score: <strong id="scoreDisplay" style="color:var(--green);font-size:20px">750</strong>
+        </label>
+        <input type="range" id="scoreSlider" min="300" max="900" step="5" value="750" oninput="updateScore()">
+        <div class="range-labels"><span>300 (No history)</span><span>900 (Perfect)</span></div>
+      </div>
+
+      <div class="score-bar-wrap">
+        <div class="score-pointer" id="scorePointer" style="left:75%"></div>
+      </div>
+      <div class="score-labels">
+        <span>300</span><span>550</span><span>650</span><span>700</span><span>750</span><span>800</span><span>900</span>
+      </div>
+
+      <div id="scoreResult" style="margin-top:16px;padding:14px;border-radius:10px;background:var(--green-light);border-left:4px solid var(--green)">
+        <!-- filled by JS -->
+      </div>
+
+      <div class="score-zones mt-16">
+        <div class="zone-chip" style="background:#ffebee" id="zone300">
+          <div class="zone-score text-red">300–549</div>
+          <div class="zone-label text-red">Poor</div>
+        </div>
+        <div class="zone-chip" style="background:#fff3e0" id="zone550">
+          <div class="zone-score text-orange">550–649</div>
+          <div class="zone-label text-orange">Fair</div>
+        </div>
+        <div class="zone-chip" style="background:#fffde7" id="zone650">
+          <div class="zone-score" style="color:#F9A825">650–699</div>
+          <div class="zone-label" style="color:#F9A825">Average</div>
+        </div>
+        <div class="zone-chip" style="background:#e8f5e9" id="zone700">
+          <div class="zone-score text-green">700–749</div>
+          <div class="zone-label text-green">Good</div>
+        </div>
+        <div class="zone-chip" style="background:#e3f2fd" id="zone750">
+          <div class="zone-score text-blue">750–900</div>
+          <div class="zone-label text-blue">Excellent</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- WHAT IS CIBIL -->
+    <div id="what-is-cibil" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:14px">📚 What is CIBIL Score?</h2>
+      <p class="fs-13 text-mid mb-12" style="line-height:1.8">CIBIL (Credit Information Bureau India Limited) score is a 3-digit number from <strong>300 to 900</strong> that represents your creditworthiness. It is calculated by TransUnion CIBIL based on your loan and credit card repayment history. Higher score = lower risk for banks = better loan terms for you.</p>
+
+      <div class="grid-3 mb-16">
+        <div class="info-box info-blue" style="margin-bottom:0">
+          <div class="info-box-title text-blue">🏛️ Who calculates it?</div>
+          <div class="fs-12 text-mid mt-8" style="line-height:1.7">TransUnion CIBIL — India's oldest credit bureau. Also: Experian, Equifax, CRIF Highmark. Banks report monthly to all 4 bureaus.</div>
+        </div>
+        <div class="info-box info-green" style="margin-bottom:0">
+          <div class="info-box-title text-green">🔄 How often updated?</div>
+          <div class="fs-12 text-mid mt-8" style="line-height:1.7">Banks report to CIBIL every 30–45 days. Your score updates monthly. Expect a 30-60 day lag before repayments reflect in score.</div>
+        </div>
+        <div class="info-box info-orange" style="margin-bottom:0">
+          <div class="info-box-title text-orange">🏦 Why banks care?</div>
+          <div class="fs-12 text-mid mt-8" style="line-height:1.7">90% of loan decisions start with a CIBIL check. Score &lt;700 = higher rate or rejection. Score 750+ = best rates, faster approval.</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>CIBIL Range</th>
+              <th>Category</th>
+              <th>Home Loan Rate</th>
+              <th>Personal Loan Rate</th>
+              <th>Approval Chance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#e8f5e9">
+              <td class="fw-600 text-blue">800 – 900</td>
+              <td><span class="tag tag-blue">Excellent</span></td>
+              <td class="text-green fw-600">8.5%</td>
+              <td class="text-green fw-600">10.5–12%</td>
+              <td class="text-green fw-600">95%+</td>
+            </tr>
+            <tr style="background:#f1f8e9">
+              <td class="fw-600 text-green">750 – 799</td>
+              <td><span class="tag tag-green">Very Good</span></td>
+              <td class="text-green fw-600">8.6–8.9%</td>
+              <td class="fw-600">12–14%</td>
+              <td class="fw-600">85–95%</td>
+            </tr>
+            <tr>
+              <td class="fw-600">700 – 749</td>
+              <td><span class="tag tag-green">Good</span></td>
+              <td>9–9.5%</td>
+              <td>14–17%</td>
+              <td>70–85%</td>
+            </tr>
+            <tr>
+              <td class="fw-600" style="color:#F9A825">650 – 699</td>
+              <td><span class="tag" style="background:#fffde7;color:#F9A825">Average</span></td>
+              <td class="text-orange">9.5–11%</td>
+              <td class="text-orange">18–24%</td>
+              <td class="text-orange">50–70%</td>
+            </tr>
+            <tr>
+              <td class="fw-600 text-orange">550 – 649</td>
+              <td><span class="tag tag-orange">Fair</span></td>
+              <td class="text-red">11%+ or rejected</td>
+              <td class="text-red">24–36%</td>
+              <td class="text-red">20–50%</td>
+            </tr>
+            <tr style="background:#fff5f5">
+              <td class="fw-600 text-red">300 – 549</td>
+              <td><span class="tag tag-red">Poor</span></td>
+              <td class="text-red">Mostly rejected</td>
+              <td class="text-red">36%+ or rejected</td>
+              <td class="text-red">&lt;20%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- CHECK FREE -->
+    <div id="score-checker" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">✅ Check Your CIBIL Score — Free</h2>
+      <p class="fs-12 text-light mb-16">All options below are 100% free. Checking your own score does NOT reduce it (soft inquiry).</p>
+
+      <div class="info-box info-green mb-16">
+        <div class="fs-12 text-green fw-600">💡 Important: Checking your own score is a <em>soft inquiry</em> and does NOT affect your CIBIL score. Only bank/lender checks (hard inquiries) affect the score.</div>
+      </div>
+
+      <div class="grid-2 mb-16">
+
+        <div class="checker-card" style="border-color:var(--orange)">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">CIBIL Official</div>
+            <span class="tag tag-orange">Official</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">TransUnion CIBIL's own website. Full report free once per year. Aadhaar OTP verification required.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Free (1/year)</span> · Paid for monthly access</div>
+          <a href="https://www.cibil.com/freecibilscore" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-orange mt-8">Check at CIBIL →</a>
+        </div>
+
+        <div class="checker-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">OneScore</div>
+            <span class="tag tag-green">Best Free App</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Clean app showing CIBIL + Experian scores. Monthly updates, no credit card required. Shows what's hurting your score.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Always free</span> · Monthly updates</div>
+          <a href="https://www.onescore.in" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-green mt-8">Check at OneScore →</a>
+        </div>
+
+        <div class="checker-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">CRED</div>
+            <span class="tag tag-blue">For Card Users</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Free CIBIL score if you have a credit card. Tracks score monthly. Credit card bill management built-in.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Free</span> · Needs credit card</div>
+          <a href="https://www.cred.club" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-8" style="background:var(--bg);border:1px solid var(--border);color:var(--text-dark)">Check at CRED →</a>
+        </div>
+
+        <div class="checker-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">Paisabazaar</div>
+            <span class="tag tag-blue">Most Detailed</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Free CIBIL report with factor analysis — shows exactly which accounts are hurting your score. Loan offers alongside.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Free</span> · Monthly updates</div>
+          <a href="https://www.paisabazaar.com/cibil-score/" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-8" style="background:var(--bg);border:1px solid var(--border);color:var(--text-dark)">Check at Paisabazaar →</a>
+        </div>
+
+        <div class="checker-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">BankBazaar</div>
+            <span class="tag">Experian</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">Free Experian score (not CIBIL — different bureau but equally valid). Good alternative to cross-check.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Free</span> · Experian score</div>
+          <a href="https://www.bankbazaar.com/cibil-score.html" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-8" style="background:var(--bg);border:1px solid var(--border);color:var(--text-dark)">Check at BankBazaar →</a>
+        </div>
+
+        <div class="checker-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="checker-name">PhonePe / Google Pay</div>
+            <span class="tag">UPI Apps</span>
+          </div>
+          <div class="fs-12 text-mid" style="line-height:1.7">PhonePe shows CIBIL inside the app. Google Pay shows credit score if you have a Google Pay card. No extra signup needed.</div>
+          <div class="fs-12"><span class="checker-free text-green fw-600">✅ Free</span> · Inside UPI app</div>
+          <div class="fs-11 text-light mt-4">PhonePe → Money → Credit Score tab</div>
+        </div>
+
+      </div>
+
+      <div class="info-box info-orange">
+        <div class="info-box-title text-orange">⚠️ Avoid paid CIBIL score sites</div>
+        <div class="fs-12 text-mid mt-6" style="line-height:1.7">Some sites charge ₹550–₹1,200/year for "premium" access. You do not need to pay — the free options above give the exact same CIBIL score. Never enter debit/credit card details to check your score.</div>
+      </div>
+    </div>
+
+
+    <!-- WHAT AFFECTS SCORE -->
+    <div id="factors" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:14px">⚙️ 5 Factors That Affect Your CIBIL Score</h2>
+
+      <div style="display:flex;flex-direction:column;gap:0" id="factorsWrap">
+
+        <div class="factor-row">
+          <div class="factor-label">💳 Payment History</div>
+          <div class="factor-bar-wrap"><div class="factor-bar" style="width:35%;background:#1E88E5"></div></div>
+          <div class="factor-pct text-blue">35%</div>
+        </div>
+        <div class="info-box info-blue" style="margin:0 0 8px;border-radius:0 0 8px 8px">
+          <div class="fs-12 text-mid" style="line-height:1.7">Single biggest factor. One missed EMI or bounced payment can drop score by 50–100 points. Always pay on or before due date. Set auto-debit.</div>
+        </div>
+
+        <div class="factor-row">
+          <div class="factor-label">💰 Credit Utilization</div>
+          <div class="factor-bar-wrap"><div class="factor-bar" style="width:30%;background:#43A047"></div></div>
+          <div class="factor-pct text-green">30%</div>
+        </div>
+        <div class="info-box info-green" style="margin:0 0 8px;border-radius:0 0 8px 8px">
+          <div class="fs-12 text-mid" style="line-height:1.7">How much of your credit card limit you use. Keep usage below 30% at all times. If limit is ₹1 lakh, never let outstanding exceed ₹30,000. Pay in full monthly.</div>
+        </div>
+
+        <div class="factor-row">
+          <div class="factor-label">📅 Credit Age</div>
+          <div class="factor-bar-wrap"><div class="factor-bar" style="width:15%;background:#FB8C00"></div></div>
+          <div class="factor-pct text-orange">15%</div>
+        </div>
+        <div class="info-box info-orange" style="margin:0 0 8px;border-radius:0 0 8px 8px">
+          <div class="fs-12 text-mid" style="line-height:1.7">Average age of all your credit accounts. Older is better. Never close your oldest credit card — it reduces average credit age and hurts your score.</div>
+        </div>
+
+        <div class="factor-row">
+          <div class="factor-label">🔀 Credit Mix</div>
+          <div class="factor-bar-wrap"><div class="factor-bar" style="width:10%;background:#8E24AA"></div></div>
+          <div class="factor-pct" style="color:var(--purple)">10%</div>
+        </div>
+        <div class="info-box" style="background:var(--purple-light);border-left:3px solid var(--purple);margin:0 0 8px;border-radius:0 0 8px 8px">
+          <div class="fs-12 text-mid" style="line-height:1.7">Mix of secured (home, car) and unsecured (personal loan, credit card) credit. Having both improves score. Pure credit card users score lower than those with a loan mix.</div>
+        </div>
+
+        <div class="factor-row">
+          <div class="factor-label">🔍 New Enquiries</div>
+          <div class="factor-bar-wrap"><div class="factor-bar" style="width:10%;background:#e53935"></div></div>
+          <div class="factor-pct text-red">10%</div>
+        </div>
+        <div class="info-box info-red" style="margin:0;border-radius:0 0 8px 8px">
+          <div class="fs-12 text-mid" style="line-height:1.7">Each time a bank pulls your CIBIL (hard inquiry), score drops 5–15 points. Applying to 5 banks at once = 5 hard inquiries. Apply to 1 bank at a time — wait for result before trying another.</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- HOW TO IMPROVE -->
+    <div id="improve" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">📈 How to Improve Your CIBIL Score</h2>
+      <p class="fs-12 text-light mb-16">Proven steps — sorted by impact. Start with the top ones first.</p>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="timeline-item">
+          <div class="timeline-month" style="background:var(--red-light);color:var(--red)">ASAP</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">✅ Pay all overdue EMIs immediately</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">If you have missed EMIs or defaults, clear them right now. Accounts in default (DPD &gt; 90 days) heavily drag the score. Even partial payment helps — settle the outstanding and request a No-Objection Certificate (NOC) from the lender.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month" style="background:var(--red-light);color:var(--red)">Week 1</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">⚡ Set auto-debit for all EMIs and credit cards</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">One missed payment = 50–100 point drop. Set standing instructions from your salary account for all loan EMIs and minimum credit card payments. Ensure enough balance 2 days before due date.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Month 1</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">💳 Reduce credit card utilization below 30%</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">If your card limit is ₹50,000 and outstanding is ₹40,000 (80% utilization), pay it down to below ₹15,000. Alternatively, request a credit limit increase from your bank — same spending, lower utilization ratio. Works within 30 days.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Month 1–2</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">🔍 Dispute errors in your CIBIL report</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">30% of CIBIL reports have at least one error. Get your free report and check: wrong loan accounts, settled loans showing as active, incorrect personal details. Dispute errors at cibil.com → Dispute Resolution. Corrected reports improve score in 30–45 days.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Month 2–3</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">🔒 Get a secured credit card (if you have no cards)</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">Open a Fixed Deposit (₹5,000–₹10,000) and get a secured credit card against it from SBI, HDFC, or Axis. Use it for small purchases (fuel, groceries) and pay full balance monthly. Builds credit history with zero risk of overspending.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Month 3+</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">🚫 Stop applying to multiple lenders simultaneously</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">Each application triggers a hard inquiry (-5 to -15 points). Apply to one lender, wait 2–3 weeks. If rejected, wait 3 months before next application. Use eligibility calculators (like ours) to pre-check without affecting CIBIL.</div>
+          </div>
+        </div>
+        <div class="timeline-item" style="border-bottom:none">
+          <div class="timeline-month">Month 6+</div>
+          <div>
+            <div class="fs-13 fw-600 mb-4">📊 Don't close old credit accounts</div>
+            <div class="fs-12 text-mid" style="line-height:1.7">Closing old credit cards reduces average credit age and total available credit limit — both hurt the score. Keep old cards open with occasional small purchases. If there's an annual fee, negotiate a waiver or downgrade to a free variant.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 12 MONTH TIMELINE -->
+    <div id="timeline" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:4px">🗓️ 12-Month Score Improvement Plan</h2>
+      <p class="fs-12 text-light mb-16">Starting from 600 CIBIL — realistic targets based on consistent action</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Action</th>
+              <th>Expected Score Gain</th>
+              <th>Cumulative Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#fff5f5">
+              <td class="fw-600">Start</td>
+              <td class="text-red">Current state — missed EMIs, high utilization</td>
+              <td>—</td>
+              <td class="fw-600 text-red">~600</td>
+            </tr>
+            <tr>
+              <td class="fw-600">Month 1</td>
+              <td>Clear overdue EMIs + set auto-debit + dispute errors</td>
+              <td class="text-green fw-600">+20 to +40</td>
+              <td class="fw-600">620–640</td>
+            </tr>
+            <tr>
+              <td class="fw-600">Month 2</td>
+              <td>Reduce credit card utilization below 30%</td>
+              <td class="text-green fw-600">+20 to +30</td>
+              <td class="fw-600">640–670</td>
+            </tr>
+            <tr>
+              <td class="fw-600">Month 3</td>
+              <td>3 months clean payment history + dispute resolved</td>
+              <td class="text-green fw-600">+15 to +25</td>
+              <td class="fw-600">660–695</td>
+            </tr>
+            <tr>
+              <td class="fw-600">Month 6</td>
+              <td>6 months perfect payments + credit mix added</td>
+              <td class="text-green fw-600">+25 to +35</td>
+              <td class="fw-600">690–730</td>
+            </tr>
+            <tr>
+              <td class="fw-600">Month 9</td>
+              <td>Consistent payment + low utilization maintained</td>
+              <td class="text-green fw-600">+15 to +20</td>
+              <td class="fw-600">715–750</td>
+            </tr>
+            <tr style="background:#e8f5e9">
+              <td class="fw-600">Month 12</td>
+              <td>12 months clean record + all steps maintained</td>
+              <td class="text-green fw-600">+15 to +25</td>
+              <td class="fw-600 text-green">750–775 ✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fs-11 text-light mt-8">Note: Actual improvement varies. Severe defaults (90+ DPD) may limit gains to +50 in first 6 months.</p>
+    </div>
+
+
+    <!-- MYTHS -->
+    <div id="myths" class="card mb-24" style="scroll-margin-top:110px">
+      <h2 style="font-size:17px;font-weight:700;margin-bottom:14px">⚡ CIBIL Myths vs Facts</h2>
+      <div class="myth-grid">
+        <div class="myth-card" style="background:#fff5f5;border-left:3px solid var(--red)">
+          <div class="myth-title text-red">❌ MYTH: Checking score hurts it</div>
+          <div class="myth-body">Checking your own score is a soft inquiry — has zero effect on CIBIL. Only hard inquiries (bank loan applications) reduce score.</div>
+        </div>
+        <div class="myth-card" style="background:#e8f5e9;border-left:3px solid var(--green)">
+          <div class="myth-title text-green">✅ FACT: Check it monthly for free</div>
+          <div class="myth-body">Check using OneScore, Paisabazaar, or CRED as many times as you want — free and harmless. Monitoring helps you catch errors early.</div>
+        </div>
+        <div class="myth-card" style="background:#fff5f5;border-left:3px solid var(--red)">
+          <div class="myth-title text-red">❌ MYTH: High income = high CIBIL</div>
+          <div class="myth-body">CIBIL is entirely based on repayment history — not salary. A ₹15K/month gig worker who pays EMIs on time can have 780 CIBIL.</div>
+        </div>
+        <div class="myth-card" style="background:#e8f5e9;border-left:3px solid var(--green)">
+          <div class="myth-title text-green">✅ FACT: Behavior matters, not income</div>
+          <div class="myth-body">Timely payment of even small loans and credit cards — ₹1,000 minimum credit card bill — builds strong CIBIL regardless of salary.</div>
+        </div>
+        <div class="myth-card" style="background:#fff5f5;border-left:3px solid var(--red)">
+          <div class="myth-title text-red">❌ MYTH: Settling a loan is good for CIBIL</div>
+          <div class="myth-body">"Settled" status (paying less than full amount) stays in CIBIL for 7 years and signals default. Banks often reject settled accounts.</div>
+        </div>
+        <div class="myth-card" style="background:#e8f5e9;border-left:3px solid var(--green)">
+          <div class="myth-title text-green">✅ FACT: Pay the full amount and get NOC</div>
+          <div class="myth-body">Always pay the complete outstanding and get a No-Objection Certificate. Only full closure shows "Closed" status — settlement shows "Settled" (bad).</div>
+        </div>
+        <div class="myth-card" style="background:#fff5f5;border-left:3px solid var(--red)">
+          <div class="myth-title text-red">❌ MYTH: No loans = good CIBIL</div>
+          <div class="myth-body">"NH" or "No History" on CIBIL means no credit record — not good credit. Banks often reject or charge higher rates for no-history applicants.</div>
+        </div>
+        <div class="myth-card" style="background:#e8f5e9;border-left:3px solid var(--green)">
+          <div class="myth-title text-green">✅ FACT: Start a credit record ASAP</div>
+          <div class="myth-body">Get a secured credit card or small personal loan and repay perfectly. 6 months of credit history is enough to get a CIBIL score of 700+.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(135deg,var(--green),#1B5E20);border-radius:var(--radius);padding:28px;text-align:center">
+      <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Know your score — now check your loan eligibility</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.9);margin-bottom:20px">See how much loan you qualify for at today's rates based on your CIBIL score and salary</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="eligibility.html" class="btn" style="background:#fff;color:var(--green);font-weight:700">Check Loan Eligibility →</a>
+        <a href="compare-loans.html" class="btn btn-ghost">📊 Compare Loan Rates</a>
+        <a href="instant-loan-apps.html" class="btn btn-ghost">⚡ Low CIBIL Loan Apps</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#what-is-cibil">What is CIBIL</a></li>
+        <li><a href="#score-checker">Check Free</a></li>
+        <li><a href="#factors">What Affects It</a></li>
+        <li><a href="#improve">How to Improve</a></li>
+        <li><a href="#myths">Myths vs Facts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Not affiliated with any lender. Rates are indicative.</p>
+  </div>
+</footer>
+
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+const scoreData = {
+  300: { label:'Poor', color:'#e53935', bg:'#ffebee', zoneId:'zone300', desc:'Very high risk. Most lenders will reject. Focus on clearing defaults, paying on time for 6+ months before applying for any loan.', homeRate:'N/A (Rejected)', personalRate:'N/A (Rejected)', approvalChance:'<10%' },
+  450: { label:'Poor', color:'#e53935', bg:'#ffebee', zoneId:'zone300', desc:'High risk. Banks will reject. Some NBFCs may offer at 35%+ rate. Priority: clear all dues, set auto-debit, wait 6 months.', homeRate:'Rejected', personalRate:'35–48%', approvalChance:'15%' },
+  550: { label:'Fair', color:'#FB8C00', bg:'#fff3e0', zoneId:'zone550', desc:'Below average. Some NBFCs and instant loan apps will approve (KreditBee, Stashfin) but rates will be 24–36%. Focus on improvement plan.', homeRate:'Rejected / 11%+', personalRate:'24–36%', approvalChance:'30%' },
+  600: { label:'Fair', color:'#FB8C00', bg:'#fff3e0', zoneId:'zone550', desc:'Below average but improving. Instant apps like KreditBee, MoneyView may approve. Home loan still difficult. Aim for 700+ in 12 months.', homeRate:'Very limited', personalRate:'20–30%', approvalChance:'45%' },
+  650: { label:'Average', color:'#F9A825', bg:'#fffde7', zoneId:'zone650', desc:'Average score. Some banks may approve home loans at higher rates. Personal loans available at 18–24%. Keep paying on time.', homeRate:'9.5–11%', personalRate:'18–24%', approvalChance:'55%' },
+  700: { label:'Good', color:'var(--green)', bg:'#e8f5e9', zoneId:'zone700', desc:'Good score. Most banks will approve home and personal loans. You qualify for reasonable rates. Push to 750+ for best rates.', homeRate:'9–9.5%', personalRate:'14–17%', approvalChance:'78%' },
+  750: { label:'Very Good', color:'var(--blue)', bg:'#e3f2fd', zoneId:'zone750', desc:'Excellent score. You qualify for best rates at all major banks. Home loan at 8.5–8.9%, personal at 10.5–13%. Negotiate for rate cuts.', homeRate:'8.5–8.9%', personalRate:'10.5–13%', approvalChance:'92%' },
+  800: { label:'Excellent', color:'var(--blue)', bg:'#e3f2fd', zoneId:'zone750', desc:'Premium borrower profile. Top-tier rates at every bank. Use this to negotiate — banks will compete for your business. Maintain this.', homeRate:'8.5%', personalRate:'10.5–11%', approvalChance:'97%' },
+  850: { label:'Excellent', color:'var(--blue)', bg:'#e3f2fd', zoneId:'zone750', desc:'Top 5% of all borrowers. You can demand the absolute lowest rates. Banks may proactively offer pre-approved loans. Keep maintaining.', homeRate:'8.5% or lower', personalRate:'10.5%', approvalChance:'99%' },
+};
+
+function getScoreInfo(score) {
+  const keys = Object.keys(scoreData).map(Number).sort((a,b) => a-b);
+  let info = scoreData[300];
+  for (const k of keys) {
+    if (score >= k) info = scoreData[k];
+  }
+  return info;
+}
+
+function updateScore() {
+  const score = parseInt(document.getElementById('scoreSlider').value);
+  const pct   = ((score - 300) / 600) * 100;
+  const info  = getScoreInfo(score);
+
+  document.getElementById('scoreDisplay').textContent = score;
+  document.getElementById('scoreDisplay').style.color = info.color;
+  document.getElementById('scorePointer').style.left  = pct + '%';
+
+  document.getElementById('scoreResult').style.background    = info.bg;
+  document.getElementById('scoreResult').style.borderColor   = info.color;
+  document.getElementById('scoreResult').innerHTML = `
+    <div style="font-size:16px;font-weight:700;color:${info.color};margin-bottom:8px">${score} — ${info.label}</div>
+    <div class="fs-13 text-mid" style="line-height:1.8;margin-bottom:10px">${info.desc}</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <div><span class="fs-11 text-light">Home Loan Rate:</span><br><strong style="color:${info.color}">${info.homeRate}</strong></div>
+      <div><span class="fs-11 text-light">Personal Loan Rate:</span><br><strong style="color:${info.color}">${info.personalRate}</strong></div>
+      <div><span class="fs-11 text-light">Approval Chance:</span><br><strong style="color:${info.color}">${info.approvalChance}</strong></div>
+    </div>`;
+
+  // highlight active zone
+  ['zone300','zone550','zone650','zone700','zone750'].forEach(id => {
+    document.getElementById(id).style.outline = 'none';
+  });
+  if (info.zoneId) {
+    document.getElementById(info.zoneId).style.outline = '2px solid ' + info.color;
+  }
+}
+
+updateScore();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free EMI Calculator India — Calculate monthly EMI for home loan, personal loan, car loan, and education loan instantly.">
+  <title>EMI Calculator — LoanBuddy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .loan-type-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+    .tab-btn {
+      padding:8px 18px; border-radius:20px; font-size:13px; font-weight:600;
+      border:2px solid var(--border); background:var(--white); color:var(--text-mid);
+      cursor:pointer; transition:all 0.2s;
+    }
+    .tab-btn.active { background:var(--blue); color:var(--white); border-color:var(--blue); }
+    .tab-btn:hover:not(.active) { border-color:var(--blue); color:var(--blue); }
+    .amort-table tbody tr:nth-child(even) { background:#fafbff; }
+    .amort-table td, .amort-table th { padding:9px 12px; font-size:12px; }
+    .pie-wrap { position:relative; width:160px; height:160px; margin:0 auto 12px; }
+    canvas#pieChart { border-radius:50%; }
+    .pie-legend { display:flex; gap:16px; justify-content:center; font-size:12px; }
+    .pie-dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:4px; vertical-align:middle; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Loan<span>Buddy</span></a>
+    <div class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emi-calculator.html" class="active">EMI Calculator</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="compare-loans.html">Compare Loans</a></li>
+      <li><a href="instant-loan-apps.html">Instant Loans</a></li>
+      <li><a href="cibil-score.html">CIBIL Score</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-breadcrumb">🏠 Home › EMI Calculator</p>
+    <h1>🧮 EMI Calculator</h1>
+    <p>Calculate your exact monthly EMI for any loan — home, personal, car, education, or business. See full payment breakdown instantly.</p>
+    <div class="hero-badges">
+      <span class="badge">⚡ Instant results</span>
+      <span class="badge">📊 Full amortization table</span>
+      <span class="badge">🏦 All loan types</span>
+      <span class="badge">✅ 100% Free</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- MAIN CALCULATOR -->
+<section class="section">
+  <div class="container">
+
+    <!-- LOAN TYPE TABS -->
+    <div class="loan-type-tabs">
+      <button class="tab-btn active" onclick="setLoanType('home',this)">🏠 Home Loan</button>
+      <button class="tab-btn" onclick="setLoanType('personal',this)">💼 Personal Loan</button>
+      <button class="tab-btn" onclick="setLoanType('car',this)">🚗 Car Loan</button>
+      <button class="tab-btn" onclick="setLoanType('education',this)">🎓 Education Loan</button>
+      <button class="tab-btn" onclick="setLoanType('business',this)">🏪 Business Loan</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start">
+
+      <!-- INPUT PANEL -->
+      <div class="calc-wrap">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:20px" id="calcTitle">Home Loan EMI Calculator</h2>
+
+        <div class="form-group">
+          <label>Loan Amount: <strong id="amtDisplay" style="color:var(--blue)">₹30,00,000</strong></label>
+          <input type="range" id="loanAmt" min="50000" max="10000000" step="50000" value="3000000" oninput="syncRange('loanAmt','loanAmtNum'); calcEMI()">
+          <div class="range-labels"><span id="amtMin">₹50K</span><span id="amtMax">₹1 Cr</span></div>
+          <input type="number" id="loanAmtNum" placeholder="Enter amount" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('loanAmtNum','loanAmt'); calcEMI()">
+        </div>
+
+        <div class="form-group">
+          <label>Interest Rate (per year): <strong id="rateDisplay" style="color:var(--blue)">8.5%</strong></label>
+          <input type="range" id="intRate" min="5" max="36" step="0.25" value="8.5" oninput="syncRange('intRate','intRateNum'); calcEMI()">
+          <div class="range-labels"><span>5%</span><span>36%</span></div>
+          <input type="number" id="intRateNum" placeholder="Enter rate" step="0.25" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('intRateNum','intRate'); calcEMI()">
+        </div>
+
+        <div class="form-group">
+          <label>Loan Tenure: <strong id="tenureDisplay" style="color:var(--blue)">20 years</strong></label>
+          <input type="range" id="tenure" min="1" max="360" step="1" value="240" oninput="syncRange('tenure','tenureNum'); calcEMI()">
+          <div class="range-labels"><span id="tenureMin">1 month</span><span id="tenureMax">30 years</span></div>
+          <input type="number" id="tenureNum" placeholder="Months" style="margin-top:8px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;width:100%;font-size:13px" oninput="syncNum('tenureNum','tenure'); calcEMI()">
+        </div>
+
+        <!-- RESULT -->
+        <div class="calc-result" id="calcResult">
+          <div class="calc-result-label">Monthly EMI</div>
+          <div class="calc-result-value" id="emiResult">₹0</div>
+          <div class="calc-breakdown">
+            <div class="calc-breakdown-item">
+              <div class="val" id="principalResult">₹0</div>
+              <div class="lbl">Principal</div>
+            </div>
+            <div class="calc-breakdown-item">
+              <div class="val" id="interestResult">₹0</div>
+              <div class="lbl">Total Interest</div>
+            </div>
+            <div class="calc-breakdown-item">
+              <div class="val" id="totalResult">₹0</div>
+              <div class="lbl">Total Payment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: CHART + TIPS -->
+      <div>
+
+        <!-- PIE CHART -->
+        <div class="card mb-16" style="text-align:center;padding:24px">
+          <h3 style="font-size:14px;font-weight:600;margin-bottom:16px">Payment Breakdown</h3>
+          <div class="pie-wrap">
+            <canvas id="pieChart" width="160" height="160"></canvas>
+          </div>
+          <div class="pie-legend">
+            <span><span class="pie-dot" style="background:#1565C0"></span>Principal</span>
+            <span><span class="pie-dot" style="background:#E65100"></span>Interest</span>
+          </div>
+          <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:var(--blue-light);border-radius:8px;padding:10px">
+              <div style="font-size:15px;font-weight:700;color:var(--blue)" id="pieP">0%</div>
+              <div style="font-size:10px;color:var(--text-light)">Principal %</div>
+            </div>
+            <div style="background:var(--orange-light);border-radius:8px;padding:10px">
+              <div style="font-size:15px;font-weight:700;color:var(--orange)" id="pieI">0%</div>
+              <div style="font-size:10px;color:var(--text-light)">Interest %</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURRENT RATES BOX -->
+        <div class="card">
+          <h3 style="font-size:14px;font-weight:600;margin-bottom:12px" id="ratesTitle">🏦 Current Home Loan Rates</h3>
+          <table id="ratesTable">
+            <thead>
+              <tr><th>Bank</th><th>Rate (p.a.)</th><th>Processing Fee</th></tr>
+            </thead>
+            <tbody id="ratesBody"></tbody>
+          </table>
+          <p style="font-size:10px;color:var(--text-light);margin-top:8px">* Rates as of June 2026. Verify with bank before applying.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- AMORTIZATION TABLE -->
+    <div class="card mt-24">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <h3 style="font-size:15px;font-weight:700">📋 Year-wise Amortization Schedule</h3>
+        <span style="font-size:11px;color:var(--text-light)">How your loan reduces each year</span>
+      </div>
+      <div class="table-wrap">
+        <table class="amort-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Opening Balance</th>
+              <th>Principal Paid</th>
+              <th>Interest Paid</th>
+              <th>Total Paid</th>
+              <th>Closing Balance</th>
+            </tr>
+          </thead>
+          <tbody id="amortBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- EMI TIPS -->
+    <div class="card mt-24">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:16px">💡 Tips to Reduce Your EMI</h3>
+      <div class="grid-3">
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">Make a larger down payment</div>
+          <div style="font-size:12px;color:var(--text-mid)">Every extra ₹1 lakh down reduces your principal and cuts total interest significantly.</div>
+        </div>
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">Improve your CIBIL score first</div>
+          <div style="font-size:12px;color:var(--text-mid)">A 750+ score can get you 0.5–1% lower rate. On ₹30L home loan that saves ₹8–12 lakh.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">Prepay when you get a bonus</div>
+          <div style="font-size:12px;color:var(--text-mid)">Paying ₹50,000 extra in year 1 can reduce tenure by 2–3 years on a 20-year loan.</div>
+        </div>
+        <div class="info-box info-blue">
+          <div class="info-box-title text-blue">Choose longer tenure carefully</div>
+          <div style="font-size:12px;color:var(--text-mid)">Lower EMI but much higher total interest. Use shorter tenure if EMI is affordable.</div>
+        </div>
+        <div class="info-box info-green">
+          <div class="info-box-title text-green">Compare banks before deciding</div>
+          <div style="font-size:12px;color:var(--text-mid)">Even 0.25% lower rate saves lakhs on a large loan. Always get quotes from 3+ lenders.</div>
+        </div>
+        <div class="info-box info-orange">
+          <div class="info-box-title text-orange">Negotiate processing fee</div>
+          <div style="font-size:12px;color:var(--text-mid)">Processing fees of 0.5–2% are negotiable, especially if your CIBIL is above 750.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:var(--blue);padding:36px 20px;text-align:center">
+  <div class="container">
+    <h2 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px">Ready to apply? Check your eligibility first</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:20px">See exactly how much loan you qualify for based on your salary</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="eligibility.html" class="btn btn-orange">Check My Eligibility →</a>
+      <a href="compare-loans.html" class="btn btn-ghost">Compare Loan Rates</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Loan<span>Buddy</span></div>
+      <p>India's loan comparison and calculator platform. Free, fast, and transparent.</p>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35)">Not a lender. Information only.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="eligibility.html">Eligibility Calculator</a></li>
+        <li><a href="compare-loans.html">Compare Loans</a></li>
+        <li><a href="instant-loan-apps.html">Instant Loan Apps</a></li>
+        <li><a href="cibil-score.html">CIBIL Score Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="cibil-score.html#improve-score">Improve CIBIL</a></li>
+        <li><a href="instant-loan-apps.html#gig-workers">Loans for Gig Workers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LoanBuddy.online — All rights reserved</p>
+    <p>Rates are indicative. Verify with lender before applying.</p>
+  </div>
+</footer>
+
+
+<script>
+// ===== NAV =====
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== LOAN TYPE DATA =====
+const loanTypes = {
+  home: {
+    title: 'Home Loan EMI Calculator',
+    ratesTitle: '🏦 Current Home Loan Rates',
+    amtMin: 500000, amtMax: 10000000, amtDefault: 3000000,
+    rateDefault: 8.5, tenureDefault: 240, tenureMax: 360,
+    rates: [
+      ['SBI', '8.50%', '0.35% + GST'],
+      ['Bank of Baroda', '8.40%', '0.50%'],
+      ['HDFC Bank', '8.75%', '0.50%'],
+      ['ICICI Bank', '8.75%', '0.50%'],
+      ['Kotak Mahindra', '8.70%', '0.50%'],
+      ['Axis Bank', '8.75%', '1%'],
+    ]
+  },
+  personal: {
+    title: 'Personal Loan EMI Calculator',
+    ratesTitle: '🏦 Personal Loan Rates',
+    amtMin: 50000, amtMax: 4000000, amtDefault: 500000,
+    rateDefault: 14, tenureDefault: 36, tenureMax: 84,
+    rates: [
+      ['SBI', '11–14%', '1% + GST'],
+      ['HDFC Bank', '10.5–24%', 'Up to 2.5%'],
+      ['ICICI Bank', '10.8–16%', 'Up to 2.5%'],
+      ['Axis Bank', '10.49–22%', 'Up to 2%'],
+      ['Bajaj Finance', '13–30%', 'Up to 3.99%'],
+      ['KreditBee', '17–30%', '2–6%'],
+    ]
+  },
+  car: {
+    title: 'Car Loan EMI Calculator',
+    ratesTitle: '🚗 Car Loan Rates',
+    amtMin: 100000, amtMax: 5000000, amtDefault: 700000,
+    rateDefault: 9, tenureDefault: 60, tenureMax: 84,
+    rates: [
+      ['SBI', '8.75%', '₹1,000 + GST'],
+      ['HDFC Bank', '9–12%', '0.4%'],
+      ['ICICI Bank', '9–12%', '0.5%'],
+      ['Axis Bank', '9.25%', '₹3,500'],
+      ['Kotak Bank', '8.99%', '₹5,000'],
+    ]
+  },
+  education: {
+    title: 'Education Loan EMI Calculator',
+    ratesTitle: '🎓 Education Loan Rates',
+    amtMin: 50000, amtMax: 7500000, amtDefault: 1500000,
+    rateDefault: 10, tenureDefault: 84, tenureMax: 180,
+    rates: [
+      ['SBI (Vidya Lakshmi)', '8.15–10.85%', 'Nil'],
+      ['Bank of Baroda', '9.70%', 'Nil'],
+      ['HDFC Credila', '9.5–13%', '1%'],
+      ['Axis Bank', '13.70%', '1%'],
+    ]
+  },
+  business: {
+    title: 'Business Loan EMI Calculator',
+    ratesTitle: '🏪 Business Loan Rates',
+    amtMin: 100000, amtMax: 5000000, amtDefault: 1000000,
+    rateDefault: 15, tenureDefault: 36, tenureMax: 84,
+    rates: [
+      ['SBI', '11.20%', '1%'],
+      ['HDFC Bank', '15–21.35%', 'Up to 2%'],
+      ['ICICI Bank', '16–25%', 'Up to 2%'],
+      ['Bajaj Finance', '14–26%', 'Up to 3%'],
+      ['Lendingkart', '12–27%', '2–3%'],
+    ]
+  }
+};
+
+let currentType = 'home';
+
+function setLoanType(type, btn) {
+  currentType = type;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const d = loanTypes[type];
+  document.getElementById('calcTitle').textContent = d.title;
+  document.getElementById('ratesTitle').textContent = d.ratesTitle;
+
+  const amtSlider = document.getElementById('loanAmt');
+  amtSlider.min = d.amtMin;
+  amtSlider.max = d.amtMax;
+  amtSlider.value = d.amtDefault;
+  document.getElementById('loanAmtNum').value = d.amtDefault;
+
+  const tenureSlider = document.getElementById('tenure');
+  tenureSlider.max = d.tenureMax;
+  tenureSlider.value = d.tenureDefault;
+  document.getElementById('tenureNum').value = d.tenureDefault;
+
+  document.getElementById('intRate').value = d.rateDefault;
+  document.getElementById('intRateNum').value = d.rateDefault;
+
+  // Update rates table
+  const tbody = document.getElementById('ratesBody');
+  tbody.innerHTML = d.rates.map(r =>
+    `<tr><td class="fw-600">${r[0]}</td><td class="text-green fw-600">${r[1]}</td><td class="text-light">${r[2]}</td></tr>`
+  ).join('');
+
+  calcEMI();
+}
+
+// ===== SYNC RANGE <-> NUMBER =====
+function syncRange(rangeId, numId) {
+  document.getElementById(numId).value = document.getElementById(rangeId).value;
+}
+function syncNum(numId, rangeId) {
+  const slider = document.getElementById(rangeId);
+  const val = parseFloat(document.getElementById(numId).value);
+  if (!isNaN(val)) {
+    slider.value = Math.min(Math.max(val, slider.min), slider.max);
+  }
+}
+
+// ===== FORMAT =====
+function fmt(n) {
+  if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + 'Cr';
+  if (n >= 100000)   return '₹' + (n/100000).toFixed(2) + 'L';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+
+// ===== MAIN CALC =====
+function calcEMI() {
+  const P = parseFloat(document.getElementById('loanAmt').value) || 0;
+  const annualRate = parseFloat(document.getElementById('intRate').value) || 0;
+  const N = parseInt(document.getElementById('tenure').value) || 1;
+  const R = annualRate / 12 / 100;
+
+  // Display labels
+  document.getElementById('amtDisplay').textContent = fmt(P);
+  document.getElementById('rateDisplay').textContent = annualRate.toFixed(2) + '%';
+  document.getElementById('tenureDisplay').textContent = N < 12
+    ? N + ' month' + (N > 1 ? 's' : '')
+    : (N / 12).toFixed(1) + ' years';
+
+  // EMI formula
+  let emi = 0;
+  if (R === 0) {
+    emi = P / N;
+  } else {
+    emi = P * R * Math.pow(1 + R, N) / (Math.pow(1 + R, N) - 1);
+  }
+
+  const totalPayment = emi * N;
+  const totalInterest = totalPayment - P;
+  const pPct = Math.round((P / totalPayment) * 100);
+  const iPct = 100 - pPct;
+
+  document.getElementById('emiResult').textContent      = fmt(emi);
+  document.getElementById('principalResult').textContent = fmt(P);
+  document.getElementById('interestResult').textContent  = fmt(totalInterest);
+  document.getElementById('totalResult').textContent     = fmt(totalPayment);
+  document.getElementById('pieP').textContent = pPct + '%';
+  document.getElementById('pieI').textContent = iPct + '%';
+
+  drawPie(pPct, iPct);
+  buildAmortization(P, R, N, emi);
+}
+
+// ===== PIE CHART =====
+function drawPie(pPct, iPct) {
+  const canvas = document.getElementById('pieChart');
+  const ctx = canvas.getContext('2d');
+  const cx = 80, cy = 80, r = 70;
+  ctx.clearRect(0, 0, 160, 160);
+
+  const pAngle = (pPct / 100) * Math.PI * 2;
+  // Principal slice
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, r, -Math.PI/2, -Math.PI/2 + pAngle);
+  ctx.closePath();
+  ctx.fillStyle = '#1565C0';
+  ctx.fill();
+  // Interest slice
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, r, -Math.PI/2 + pAngle, -Math.PI/2 + Math.PI*2);
+  ctx.closePath();
+  ctx.fillStyle = '#E65100';
+  ctx.fill();
+  // Center hole
+  ctx.beginPath();
+  ctx.arc(cx, cy, 40, 0, Math.PI * 2);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+}
+
+// ===== AMORTIZATION =====
+function buildAmortization(P, R, N, emi) {
+  const tbody = document.getElementById('amortBody');
+  tbody.innerHTML = '';
+
+  let balance = P;
+  const years = Math.ceil(N / 12);
+
+  for (let y = 1; y <= years; y++) {
+    const monthsThisYear = Math.min(12, N - (y - 1) * 12);
+    let yearPrincipal = 0, yearInterest = 0;
+    const openBalance = balance;
+
+    for (let m = 0; m < monthsThisYear; m++) {
+      const interestPart = balance * R;
+      const principalPart = Math.min(emi - interestPart, balance);
+      yearInterest += interestPart;
+      yearPrincipal += principalPart;
+      balance -= principalPart;
+      if (balance < 0) balance = 0;
+    }
+
+    tbody.innerHTML += `
+      <tr>
+        <td class="fw-600">Year ${y}</td>
+        <td>${fmt(openBalance)}</td>
+        <td class="text-blue fw-600">${fmt(yearPrincipal)}</td>
+        <td class="text-orange">${fmt(yearInterest)}</td>
+        <td>${fmt(yearPrincipal + yearInterest)}</td>
+        <td class="text-green fw-600">${fmt(Math.max(0, balance))}</td>
+      </tr>`;
+  }
+}
+
+// ===== INIT =====
+setLoanType('home', document.querySelector('.tab-btn'));
+</script>
+
+</body>
+</html>
