@@ -1,0 +1,59 @@
+{
+  "_lastUpdated": "July 2026",
+  "_note": "Update this file monthly. All pages read from here automatically.",
+
+  "homeLoan": [
+    { "bank": "LIC Housing Finance",   "rateFrom": "7.15", "rateTo": "10.50", "highlight": true,  "url": "https://www.lichousing.com/home-loan.php" },
+    { "bank": "SBI",                   "rateFrom": "7.25", "rateTo": "8.70",  "highlight": false, "url": "https://homeloans.sbi/home-loan" },
+    { "bank": "Bajaj Housing Finance", "rateFrom": "7.25", "rateTo": "15.00", "highlight": false, "url": "https://www.bajajhousingfinance.in/home-loan" },
+    { "bank": "Kotak Mahindra",        "rateFrom": "7.70", "rateTo": "13.30", "highlight": false, "url": "https://www.kotak.com/en/personal-banking/loans/home-loan.html" },
+    { "bank": "Bank of Baroda",        "rateFrom": "8.40", "rateTo": "10.65", "highlight": false, "url": "https://www.bankofbaroda.in/personal-banking/loans/home-loans" },
+    { "bank": "HDFC Bank",             "rateFrom": "8.70", "rateTo": "10.05", "highlight": false, "url": "https://www.hdfcbank.com/personal/borrow/popular-loans/home-loan" },
+    { "bank": "ICICI Bank",            "rateFrom": "8.75", "rateTo": "10.05", "highlight": false, "url": "https://www.icicibank.com/personal-banking/loans/home-loan" },
+    { "bank": "Axis Bank",             "rateFrom": "8.75", "rateTo": "13.30", "highlight": false, "url": "https://www.axisbank.com/retail/loans/home-loan" }
+  ],
+
+  "personalLoan": [
+    { "bank": "Kotak Mahindra", "rateFrom": "9.98",  "rateTo": "24.00", "highlight": true,  "url": "https://www.kotak.com/en/personal-banking/loans/personal-loan.html" },
+    { "bank": "HDFC Bank",      "rateFrom": "9.99",  "rateTo": "24.00", "highlight": false, "url": "https://www.hdfcbank.com/personal/borrow/popular-loans/personal-loan" },
+    { "bank": "ICICI Bank",     "rateFrom": "9.99",  "rateTo": "22.00", "highlight": false, "url": "https://www.icicibank.com/personal-banking/loans/personal-loan" },
+    { "bank": "Axis Bank",      "rateFrom": "10.49", "rateTo": "22.00", "highlight": false, "url": "https://www.axisbank.com/retail/loans/personal-loan" },
+    { "bank": "SBI",            "rateFrom": "10.00", "rateTo": "15.00", "highlight": false, "url": "https://www.sbi.co.in/web/personal-banking/loans/personal-loans" },
+    { "bank": "Tata Capital",   "rateFrom": "10.99", "rateTo": "25.00", "highlight": false, "url": "https://www.tatacapital.com/personal-loan.html" },
+    { "bank": "Bajaj Finance",  "rateFrom": "11.00", "rateTo": "35.00", "highlight": false, "url": "https://www.bajajfinserv.in/personal-loan" }
+  ],
+
+  "carLoan": [
+    { "bank": "SBI",            "rateFrom": "7.45", "rateTo": "9.00",  "highlight": true,  "url": "https://www.sbi.co.in/web/personal-banking/loans/auto-loans/sbi-car-loan" },
+    { "bank": "Bank of Baroda", "rateFrom": "7.50", "rateTo": "9.10",  "highlight": false, "url": "https://www.bankofbaroda.in/personal-banking/loans/vehicle-loans/baroda-car-loan" },
+    { "bank": "ICICI Bank",     "rateFrom": "8.40", "rateTo": "10.50", "highlight": false, "url": "https://www.icicibank.com/personal-banking/loans/car-loan" },
+    { "bank": "HDFC Bank",      "rateFrom": "9.40", "rateTo": "11.50", "highlight": false, "url": "https://www.hdfcbank.com/personal/borrow/popular-loans/new-car-loan" },
+    { "bank": "Axis Bank",      "rateFrom": "9.50", "rateTo": "11.75", "highlight": false, "url": "https://www.axisbank.com/retail/loans/car-loan" }
+  ],
+
+  "businessLoan": [
+    { "bank": "SBI (Mudra)",   "rateFrom": "8.25",  "rateTo": "12.00", "highlight": true,  "url": "https://www.sbi.co.in/web/business/sme/sme-loans/mudra-loan" },
+    { "bank": "HDFC Bank",     "rateFrom": "10.00", "rateTo": "22.50", "highlight": false, "url": "https://www.hdfcbank.com/sme/borrow/working-capital-finance/business-loan" },
+    { "bank": "ICICI Bank",    "rateFrom": "10.25", "rateTo": "20.00", "highlight": false, "url": "https://www.icicibank.com/business-banking/loans/business-loan" },
+    { "bank": "Bajaj Finance", "rateFrom": "14.00", "rateTo": "26.00", "highlight": false, "url": "https://www.bajajfinserv.in/business-loan" },
+    { "bank": "Lendingkart",   "rateFrom": "18.00", "rateTo": "36.00", "highlight": false, "url": "https://www.lendingkart.com/business-loan" }
+  ],
+
+  "educationLoan": [
+    { "bank": "SBI (Vidyalakshmi)", "rateFrom": "7.15", "rateTo": "10.05", "highlight": true,  "url": "https://www.sbi.co.in/web/personal-banking/loans/education-loans/student-loan" },
+    { "bank": "Bank of Baroda",     "rateFrom": "7.70", "rateTo": "10.50", "highlight": false, "url": "https://www.bankofbaroda.in/personal-banking/loans/education-loan" },
+    { "bank": "Canara Bank",        "rateFrom": "7.70", "rateTo": "10.50", "highlight": false, "url": "https://canarabank.com/education-loan" },
+    { "bank": "HDFC Credila",       "rateFrom": "9.95", "rateTo": "13.50", "highlight": false, "url": "https://www.credila.com/education-loan" }
+  ],
+
+  "instantApps": [
+    { "name": "KreditBee",  "rateMin": "17",    "rateMax": "29.95", "amtMax": "4,00,000",  "minSalary": "10,000", "gigOk": true,  "badge": "Editor's Pick", "url": "https://www.kreditbee.in" },
+    { "name": "Navi",       "rateMin": "9.9",   "rateMax": "45",    "amtMax": "20,00,000", "minSalary": "15,000", "gigOk": false, "badge": "Lowest Rate",   "url": "https://navi.com/personal-loan" },
+    { "name": "mPokket",    "rateMin": "24",    "rateMax": "48",    "amtMax": "30,000",    "minSalary": "0",      "gigOk": true,  "badge": "Students OK",   "url": "https://www.mpokket.in" },
+    { "name": "MoneyView",  "rateMin": "12",    "rateMax": "28.50", "amtMax": "10,00,000", "minSalary": "13,500", "gigOk": true,  "badge": "",              "url": "https://moneyview.in/personal-loan" },
+    { "name": "CASHe",      "rateMin": "30",    "rateMax": "36",    "amtMax": "4,00,000",  "minSalary": "12,000", "gigOk": true,  "badge": "",              "url": "https://www.cashe.co.in" },
+    { "name": "Fibe",       "rateMin": "24",    "rateMax": "30",    "amtMax": "5,00,000",  "minSalary": "18,000", "gigOk": false, "badge": "45-Day Loans",  "url": "https://fibe.in/instant-personal-loan" },
+    { "name": "PaySense",   "rateMin": "16.80", "rateMax": "27.60", "amtMax": "5,00,000",  "minSalary": "12,000", "gigOk": true,  "badge": "",              "url": "https://www.gopaysense.com" },
+    { "name": "Stashfin",   "rateMin": "11.99", "rateMax": "59.99", "amtMax": "5,00,000",  "minSalary": "15,000", "gigOk": true,  "badge": "Low CIBIL OK", "url": "https://www.stashfin.com" }
+  ]
+}
