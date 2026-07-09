@@ -1,1 +1,1 @@
-# loanbuddy
+# loansbuddy

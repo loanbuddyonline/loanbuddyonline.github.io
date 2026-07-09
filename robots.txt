@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loanbuddy.online/sitemap.xml
+Sitemap: https://loansbuddy.co.in/sitemap.xml
