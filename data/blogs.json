@@ -1,0 +1,86 @@
+{
+  "featured": {
+    "file": "blog/home-loan-vs-rent.html",
+    "icon": "🏠",
+    "category": "Home Loan",
+    "categoryTag": "tag-orange",
+    "title": "Home Loan vs Rent — Which is Better in 2026?",
+    "excerpt": "At ₹8.5% home loan rate, a ₹50L loan costs ₹43,391/month EMI for 20 years. Is it cheaper to rent and invest? We do the full math for a Mumbai, Bengaluru, and Hyderabad household.",
+    "date": "June 2026",
+    "readTime": "8 min read"
+  },
+  "posts": [
+    {
+      "file": "blog/home-loan-vs-rent.html",
+      "icon": "🏠",
+      "bgColor": "var(--blue-light)",
+      "category": "Home Loan",
+      "categoryTag": "tag-blue",
+      "cats": "home-loan",
+      "title": "Home Loan vs Rent — Which is Better in 2026?",
+      "excerpt": "Full cost comparison with real numbers for Mumbai, Bengaluru, and Hyderabad. Includes the opportunity cost of the down payment.",
+      "date": "June 2026",
+      "readTime": "8 min read"
+    },
+    {
+      "file": "blog/low-cibil-personal-loan.html",
+      "icon": "📊",
+      "bgColor": "var(--orange-light)",
+      "category": "Personal Loan",
+      "categoryTag": "tag-orange",
+      "cats": "personal-loan cibil",
+      "title": "How to Get Personal Loan with Low CIBIL Score (600–680)",
+      "excerpt": "Which lenders approve at 600 CIBIL? What documents help? How to avoid rate trap. Step-by-step guide with real options.",
+      "date": "June 2026",
+      "readTime": "6 min read"
+    },
+    {
+      "file": "blog/gig-worker-loan-guide.html",
+      "icon": "🚗",
+      "bgColor": "var(--green-light)",
+      "category": "Gig Workers",
+      "categoryTag": "tag-green",
+      "cats": "gig personal-loan",
+      "title": "Ola/Uber/Swiggy Driver Loan Guide 2026 — Full Options",
+      "excerpt": "Gig workers get rejected by banks. Here are 6 apps that approve without salary slip, the documents needed, and the cheapest rate available.",
+      "date": "June 2026",
+      "readTime": "7 min read"
+    },
+    {
+      "file": "blog/reduce-home-loan-emi.html",
+      "icon": "💡",
+      "bgColor": "#f3e5f5",
+      "category": "Loan Tips",
+      "categoryTag": "tag-purple",
+      "cats": "home-loan tips",
+      "title": "5 Ways to Reduce Your Home Loan EMI Right Now",
+      "excerpt": "Balance transfer, prepayment, tenure change, rate renegotiation — real savings numbers on a ₹40 lakh loan. Which one saves the most?",
+      "date": "June 2026",
+      "readTime": "5 min read"
+    },
+    {
+      "file": "blog/personal-loan-vs-instant-loan.html",
+      "icon": "💰",
+      "bgColor": "var(--orange-light)",
+      "category": "Personal Loan",
+      "categoryTag": "tag-orange",
+      "cats": "personal-loan tips",
+      "title": "Personal Loan vs Instant Loan — Which Costs Less?",
+      "excerpt": "A ₹50,000 loan from a bank vs a loan app — the difference in total cost will surprise you. Real numbers, hidden fees explained.",
+      "date": "July 2026",
+      "readTime": "5 min read"
+    },
+    {
+      "file": "blog/instant-loan-default-consequences.html",
+      "icon": "⚠️",
+      "bgColor": "#ffebee",
+      "category": "Must Read",
+      "categoryTag": "tag-red",
+      "cats": "personal-loan tips",
+      "title": "What Happens If You Can't Pay an Instant Loan After 30 Days?",
+      "excerpt": "Late fees, CIBIL damage, recovery calls, legal action — the full day-by-day timeline with real cost calculation on ₹20,000 loan.",
+      "date": "July 2026",
+      "readTime": "6 min read"
+    }
+  ]
+}
